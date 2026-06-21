@@ -3903,40 +3903,83 @@
 
   initActionMedia();
 
+  var _lb = { thumb: null, idx: 0 };
+
+  function getStepThumbs() {
+    var step = _lb.thumb && _lb.thumb.closest('.step-content');
+    return step ? step.querySelectorAll('.step-action-thumb') : [];
+  }
+
+  function getStepCount() {
+    var total = 0;
+    getStepThumbs().forEach(function(t) { total += (t._items && t._items.length) || 0; });
+    return total;
+  }
+
+  function getStepIdx() {
+    var n = 0;
+    var thumbs = getStepThumbs();
+    for (var i = 0; i < thumbs.length; i++) {
+      var items = thumbs[i]._items;
+      if (!items) continue;
+      if (thumbs[i] === _lb.thumb) return n + _lb.idx;
+      n += items.length;
+    }
+    return 0;
+  }
+
+  function findAtStep(stepIdx) {
+    var n = 0;
+    var thumbs = getStepThumbs();
+    for (var i = 0; i < thumbs.length; i++) {
+      var items = thumbs[i]._items;
+      if (!items || !items.length) continue;
+      if (n + items.length > stepIdx) return { thumb: thumbs[i], idx: stepIdx - n };
+      n += items.length;
+    }
+    return null;
+  }
+
   function openActionLightbox(thumb, idx) {
     var items = thumb._items;
     if (!items || !items.length) return;
-    var lb = document.getElementById('gallery-lightbox');
-    var content = lb.querySelector('.lightbox-content');
-    lb._thumbItems = items;
-    lb._currentIdx = idx;
-    renderLightbox(lb);
-    lb.classList.add('show');
+    _lb.thumb = thumb;
+    _lb.idx = idx;
+    renderLb();
+    document.getElementById('gallery-lightbox').classList.add('show');
   }
 
-  function renderLightbox(lb) {
-    var content = lb.querySelector('.lightbox-content');
-    var items = lb._thumbItems;
-    var idx = lb._currentIdx;
-    if (!items || !items.length) { lb.classList.remove('show'); return; }
-    var item = items[idx];
-    content.innerHTML = item.isVideo
+  function renderLb() {
+    var t = _lb.thumb, i = _lb.idx;
+    if (!t || !t._items || !t._items.length) return;
+    var item = t._items[i];
+    var lb = document.getElementById('gallery-lightbox');
+    lb.querySelector('.lightbox-content').innerHTML = item.isVideo
       ? '<video src="' + item.url + '" controls autoplay playsinline></video>'
       : '<img src="' + item.url + '" alt="">';
-
-    var prev = lb.querySelector('.lb-prev');
-    var next = lb.querySelector('.lb-next');
-    var counter = lb.querySelector('.lb-counter');
-    prev.style.display = 'flex';
-    next.style.display = 'flex';
-    counter.textContent = (idx + 1) + '/' + items.length;
-    counter.style.display = 'block';
+    lb.querySelector('.lb-prev').style.display = 'flex';
+    lb.querySelector('.lb-next').style.display = 'flex';
+    var total = getStepCount();
+    if (total > 1) {
+      lb.querySelector('.lb-counter').textContent = (getStepIdx() + 1) + '/' + total;
+    } else {
+      lb.querySelector('.lb-counter').textContent = '1/1';
+    }
+    lb.querySelector('.lb-counter').style.display = 'block';
   }
 
   function navigateLightbox(dir) {
-    var lb = document.getElementById('gallery-lightbox');
-    lb._currentIdx = (lb._currentIdx + dir + lb._thumbItems.length) % lb._thumbItems.length;
-    renderLightbox(lb);
+    var total = getStepCount();
+    if (total < 2) return;
+    var cur = getStepIdx();
+    var next = cur + dir;
+    if (next < 0) next = total - 1;
+    if (next >= total) next = 0;
+    var f = findAtStep(next);
+    if (!f) return;
+    _lb.thumb = f.thumb;
+    _lb.idx = f.idx;
+    renderLb();
   }
 
   function closeLightbox(e) {
@@ -3947,8 +3990,8 @@
     lb.querySelector('.lb-prev').style.display = 'none';
     lb.querySelector('.lb-next').style.display = 'none';
     lb.querySelector('.lb-counter').style.display = 'none';
-    lb._thumbItems = null;
-    lb._currentIdx = 0;
+    _lb.thumb = null;
+    _lb.idx = 0;
   }
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeLightbox();
