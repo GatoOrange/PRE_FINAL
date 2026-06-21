@@ -165,11 +165,12 @@
     color: var(--text-light);
     line-height: 1.6;
     max-width: 700px;
-    margin-bottom: 28px;
+    margin: 0 auto 28px;
     font-weight: 400;
     opacity: 0;
     transition: opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s;
     transform: translateY(12px);
+    text-align: center;
   }
   .slide.active .slide-subtitle { opacity: 1; transform: translateY(0); }
 
@@ -1166,18 +1167,18 @@
   }
 
   .process-section {
-    margin-bottom: 32px;
+    margin-bottom: 16px;
   }
   .process-section:last-child {
     margin-bottom: 0;
   }
   .process-section-label {
-    font-size: 11px;
+    font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #888;
     font-weight: 600;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
     text-align: center;
   }
 
@@ -1185,7 +1186,7 @@
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     border-radius: 14px;
-    padding: 20px 20px;
+    padding: 12px 16px;
     cursor: pointer;
     text-align: left;
     font-family: var(--font);
@@ -1206,7 +1207,7 @@
     display: flex;
     align-items: flex-start;
     gap: 14px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
   .process-block .proc-icon {
     width: 42px;
@@ -1232,25 +1233,25 @@
     margin-bottom: 2px;
   }
   .process-block .proc-title {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     color: #e8e8e8;
-    line-height: 1.3;
+    line-height: 1.2;
     transition: color 0.25s;
   }
   .process-block:hover .proc-title { color: #39b54a; }
   .process-block .proc-steps {
     list-style: none;
     padding: 0;
-    margin: 10px 0 12px;
+    margin: 5px 0 8px;
     border-top: 1px solid rgba(255,255,255,0.05);
-    padding-top: 10px;
+    padding-top: 8px;
   }
   .process-block .proc-steps li {
-    font-size: 12.5px;
+    font-size: 11px;
     color: #888;
-    line-height: 1.55;
-    padding: 3px 0 3px 18px;
+    line-height: 1.4;
+    padding: 2px 0 2px 18px;
     position: relative;
   }
   .process-block .proc-steps li::before {
@@ -2214,7 +2215,7 @@
       <div class="slide-label" style="font-size:14px;">Fase 1 · Laboratorio</div>
       <div class="slide-accent-line"></div>
       <h2 class="slide-title" style="font-size:26px;margin-bottom:4px;color:#e0e0e0;">Preparación y Caracterización de Materia Prima</h2>
-      <p class="slide-subtitle">Acondicionamiento del aceite residual y preparación del catalizador</p>
+      <p class="slide-subtitle" style="text-align:center;">Preparación del aceite residual y del catalizador para transesterificación</p>
       <div class="process-grid">
         <div class="process-block" onclick="openFase1Modal(1)">
           <div class="proc-top">
@@ -2288,7 +2289,7 @@
       <div class="slide-label" style="font-size:14px;">Fase 2 · Transformación</div>
       <div class="slide-accent-line"></div>
       <h2 class="slide-title" style="font-size:26px;margin-bottom:4px;color:#e0e0e0;">Esterificación, Transesterificación y Separación</h2>
-      <p class="slide-subtitle">Conversión de aceite tratado en ésteres metílicos y separación de glicerina</p>
+      <p class="slide-subtitle" style="text-align:center;">Conversión de aceite tratado en ésteres metílicos y separación de glicerina</p>
       <div class="process-grid process-grid-3">
         <div class="process-block" onclick="openFase2Modal(1)">
           <div class="proc-top">
@@ -2343,13 +2344,13 @@
   </div>
 
   <!-- SLIDE 5: FASE 3 - PURIFICACIÓN Y CARACTERIZACIÓN -->
-  <div class="slide" data-index="4">
+  <div class="slide" data-index="4" style="padding: 20px 40px 40px;">
     <div class="slide-logo"><img src="images/logo-sena-blanco.png" alt="SENA" onerror="this.style.display='none'"></div>
     <div class="slide-content" style="text-align:center;">
       <div class="slide-label" style="font-size:14px;">Fase 3 · Purificación y Caracterización</div>
       <div class="slide-accent-line"></div>
       <h2 class="slide-title" style="font-size:26px;margin-bottom:4px;color:#e0e0e0;">Purificación y Caracterización Final</h2>
-      <p class="slide-subtitle">Eliminación de impurezas y verificación de calidad del biodiesel</p>
+      <p class="slide-subtitle" style="text-align:center;">Eliminación de impurezas y verificación de calidad del biodiesel</p>
 
       <div class="process-section">
         <div class="process-section-label">Purificación</div>
@@ -3306,8 +3307,8 @@
               <div class="step-action-list">
                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Medir índice de acidez</span></div>
                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Determinar densidad</span></div>
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Evaluar contenido de humedad</span></div>
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Lavar y secar el aceite</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Lavado del aceite</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Secado del aceite</span></div>
               </div>
             </div>
             <div class="step-section">
@@ -3476,38 +3477,38 @@
         </div>
       </div>
 
-      <!-- Step 3: Centrifugación -->
-      <div class="step-content" data-step="3">
-        <div class="step-card">
-          <div class="step-card-header">
-            <span class="step-card-num">03</span>
-            <div class="step-card-header-info">
-              <div class="step-card-label">Paso 3 · Separación</div>
-              <div class="step-card-title">Centrifugación</div>
-            </div>
-          </div>
-          <div class="step-card-body">
-            <div class="step-section">
-              <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
-              <div class="step-action-list">
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Mantener mezcla a 45–55 °C</span></div>
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Distribuir y balancear tubos</span></div>
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Centrifugar 3000–3500 rpm · 10–15 min</span></div>
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Recuperar fase superior</span></div>
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Cuantificar glicerina separada</span></div>
-              </div>
-            </div>
-            <div class="step-section">
-              <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
-              <p class="step-card-brief">Separar la fase rica en glicerina del biodiesel crudo por diferencia de densidades mediante centrifugación.</p>
-            </div>
-            <div class="step-section">
-              <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
-              <p class="step-card-purpose">Separar el biodiesel crudo de la glicerina y otras fases pesadas para obtener un producto intermedio listo para purificar.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+       <!-- Step 3: Decantación -->
+       <div class="step-content" data-step="3">
+         <div class="step-card">
+           <div class="step-card-header">
+             <span class="step-card-num">03</span>
+             <div class="step-card-header-info">
+               <div class="step-card-label">Paso 3 · Separación</div>
+               <div class="step-card-title">Decantación</div>
+             </div>
+           </div>
+           <div class="step-card-body">
+             <div class="step-section">
+               <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
+               <div class="step-action-list">
+                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Mantener mezcla a 45–55 °C</span></div>
+                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Reposar la mezcla en el decantador</span></div>
+                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Observar la separación de fases</span></div>
+                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Recuperar fase superior</span></div>
+                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Cuantificar glicerina separada</span></div>
+               </div>
+             </div>
+             <div class="step-section">
+               <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
+               <p class="step-card-brief">Separar la fase rica en glicerina del biodiesel crudo por diferencia de densidades mediante decantación.</p>
+             </div>
+             <div class="step-section">
+               <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
+               <p class="step-card-purpose">Separar el biodiesel crudo de la glicerina y otras fases pesadas para obtener un producto intermedio listo para purificar.</p>
+             </div>
+           </div>
+         </div>
+       </div>
 
       <!-- Navigation -->
       <div class="phase-nav">
@@ -3638,98 +3639,98 @@
         </div>
       </div>
 
-      <!-- Step 4: Prueba de conversión de ésteres -->
-      <div class="step-content" data-step="4">
-        <div class="step-card">
-          <div class="step-card-header">
-            <span class="step-card-num">04</span>
-            <div class="step-card-header-info">
-              <div class="step-card-label">Paso 4 · Químico</div>
-              <div class="step-card-title">Conversión de ésteres</div>
-            </div>
-          </div>
-          <div class="step-card-body">
-            <div class="step-section">
-              <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
-              <div class="step-action-list">
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Mezclar 27 mL metanol + 3 mL producto</span></div>
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Agitar 30 s y reposar 2 min</span></div>
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Evaluar transparencia y homogeneidad</span></div>
-              </div>
-            </div>
-            <div class="step-section">
-              <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
-              <p class="step-card-brief">Evaluar la conversión de triglicéridos a ésteres metílicos mediante una prueba rápida de solubilidad en metanol.</p>
-            </div>
-            <div class="step-section">
-              <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
-              <p class="step-card-purpose">Verificar que la transesterificación fue completa y que el producto cumple con el estándar de calidad requerido.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+       <!-- Step 4: Verificación de pH -->
+       <div class="step-content" data-step="4">
+         <div class="step-card">
+           <div class="step-card-header">
+             <span class="step-card-num">04</span>
+             <div class="step-card-header-info">
+               <div class="step-card-label">Paso 4 · Calidad</div>
+               <div class="step-card-title">Verificación de pH</div>
+             </div>
+           </div>
+           <div class="step-card-body">
+             <div class="step-section">
+               <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
+               <div class="step-action-list">
+                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Medir pH del producto final</span></div>
+                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Comparar con estándares</span></div>
+                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Registrar resultado obtenido</span></div>
+               </div>
+             </div>
+             <div class="step-section">
+               <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
+               <p class="step-card-brief">Evaluar el pH del producto final para asegurar la neutralidad y estabilidad del biodiesel.</p>
+             </div>
+             <div class="step-section">
+               <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
+               <p class="step-card-purpose">Asegurar que el producto final no presente acidez o alcalinidad excesiva que pueda corroer motores o degradar el combustible.</p>
+             </div>
+           </div>
+         </div>
+       </div>
 
-      <!-- Step 5: Evaluación de humedad -->
-      <div class="step-content" data-step="5">
-        <div class="step-card">
-          <div class="step-card-header">
-            <span class="step-card-num">05</span>
-            <div class="step-card-header-info">
-              <div class="step-card-label">Paso 5 · Calidad</div>
-              <div class="step-card-title">Evaluación de humedad</div>
-            </div>
-          </div>
-          <div class="step-card-body">
-            <div class="step-section">
-              <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
-              <div class="step-action-list">
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Calentar muestra a 120–130 °C</span></div>
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Observar burbujeo o chisporroteo</span></div>
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Ausencia de burbujas = baja humedad</span></div>
-              </div>
-            </div>
-            <div class="step-section">
-              <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
-              <p class="step-card-brief">Verificar el contenido de agua residual en el biodiesel, un parámetro crítico que afecta la calidad y estabilidad del producto.</p>
-            </div>
-            <div class="step-section">
-              <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
-              <p class="step-card-purpose">Confirmar que el contenido de agua residual está dentro de los límites permitidos por las normativas.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+       <!-- Step 5: Evaluación de humedad -->
+       <div class="step-content" data-step="5">
+         <div class="step-card">
+           <div class="step-card-header">
+             <span class="step-card-num">05</span>
+             <div class="step-card-header-info">
+               <div class="step-card-label">Paso 5 · Calidad</div>
+               <div class="step-card-title">Evaluación de humedad</div>
+             </div>
+           </div>
+           <div class="step-card-body">
+             <div class="step-section">
+               <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
+               <div class="step-action-list">
+                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Calentar muestra hasta 120–130 °C</span></div>
+                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Observar burbujeo o chisporroteo</span></div>
+                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Verificar ausencia de burbujas</span></div>
+               </div>
+             </div>
+             <div class="step-section">
+               <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
+               <p class="step-card-brief">La ausencia de burbujeo indica bajo contenido de humedad. Si el líquido cruje o genera burbujas, tiene humedad alta (&gt; 500 ppm).</p>
+             </div>
+             <div class="step-section">
+               <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
+               <p class="step-card-purpose">Verificar la presencia de agua residual para asegurar que el producto sea un solvente dieléctrico apto (calentamiento en silencio y quietud).</p>
+             </div>
+           </div>
+         </div>
+       </div>
 
-      <!-- Step 6: Prueba de desempeño físico -->
-      <div class="step-content" data-step="6">
-        <div class="step-card">
-          <div class="step-card-header">
-            <span class="step-card-num">06</span>
-            <div class="step-card-header-info">
-              <div class="step-card-label">Paso 6 · Físico</div>
-              <div class="step-card-title">Desempeño físico</div>
-            </div>
-          </div>
-          <div class="step-card-body">
-            <div class="step-section">
-              <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
-              <div class="step-action-list">
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Aplicar sobre superficie con suciedad</span></div>
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Evaluar capacidad de limpieza</span></div>
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Registrar observaciones de desempeño</span></div>
-              </div>
-            </div>
-            <div class="step-section">
-              <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
-              <p class="step-card-brief">Evaluar el poder de solvencia del biodiesel como producto de limpieza sobre superficies con suciedad.</p>
-            </div>
-            <div class="step-section">
-              <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
-              <p class="step-card-purpose">Demostrar la funcionalidad del biodiesel como producto de limpieza, validando su aplicación práctica.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+       <!-- Step 6: Evaluación de Conductividad Eléctrica -->
+       <div class="step-content" data-step="6">
+         <div class="step-card">
+           <div class="step-card-header">
+             <span class="step-card-num">06</span>
+             <div class="step-card-header-info">
+               <div class="step-card-label">Paso 6 · Físico</div>
+               <div class="step-card-title">Evaluación de Conductividad Eléctrica</div>
+             </div>
+           </div>
+           <div class="step-card-body">
+             <div class="step-section">
+               <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
+               <div class="step-action-list">
+                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Medir la conductividad eléctrica del producto final</span></div>
+                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Evaluar la capacidad aislante</span></div>
+                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Registrar resultado final</span></div>
+               </div>
+             </div>
+             <div class="step-section">
+               <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
+               <p class="step-card-brief">Determinar la capacidad del producto para actuar como aislante eléctrico, evitando fugas de corriente.</p>
+             </div>
+             <div class="step-section">
+               <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
+               <p class="step-card-purpose">Determinar de forma exploratoria la capacidad aislante del producto para validar su uso como solvente dieléctrico.</p>
+             </div>
+           </div>
+         </div>
+       </div>
 
       <!-- Navigation -->
       <div class="phase-nav">
