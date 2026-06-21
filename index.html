@@ -1151,7 +1151,7 @@
   .process-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 20px;
     width: 100%;
     max-width: 860px;
     margin: 0 auto;
@@ -1160,41 +1160,47 @@
     transform: translateY(12px);
   }
   .slide.active .process-grid { opacity: 1; transform: translateY(0); }
+
+  .process-grid-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .process-section {
+    margin-bottom: 32px;
+  }
+  .process-section:last-child {
+    margin-bottom: 0;
+  }
+  .process-section-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #888;
+    font-weight: 600;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
   .process-block {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
-    border-radius: 16px;
-    padding: 22px 20px;
+    border-radius: 14px;
+    padding: 20px 20px;
     cursor: pointer;
     text-align: left;
     font-family: var(--font);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
   }
-  .process-block::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-light), transparent);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .process-block:hover::before { transform: scaleX(1); }
   .process-block:hover {
-    border-color: #39b54a;
-    box-shadow: 0 8px 32px rgba(57,181,74,0.15);
-    transform: translateY(-4px);
+    border-color: rgba(57,181,74,0.3);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+    transform: translateY(-2px);
   }
   .process-block:active {
-    transform: translateY(-1px) scale(0.99);
-    box-shadow: 0 4px 16px rgba(57,181,74,0.1);
+    transform: translateY(0) scale(0.99);
   }
   .process-block .proc-top {
     display: flex;
@@ -1203,20 +1209,19 @@
     margin-bottom: 12px;
   }
   .process-block .proc-icon {
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
-    border-radius: 12px;
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    border-radius: 10px;
     background: var(--primary-bg);
     color: var(--primary-light);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
+    font-size: 16px;
     transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
   }
-  .process-block:hover .proc-icon { background: #39b54a; color: #fff; transform: scale(1.06) rotate(-5deg); }
-  .process-block:active .proc-icon { transform: scale(0.96) rotate(-5deg); }
+  .process-block:hover .proc-icon { background: rgba(57,181,74,0.2); color: #39b54a; transform: scale(1.05); }
   .process-block .proc-info { flex: 1; }
   .process-block .proc-label {
     font-size: 10px;
@@ -1227,53 +1232,487 @@
     margin-bottom: 2px;
   }
   .process-block .proc-title {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
-    color: #e0e0e0;
+    color: #e8e8e8;
+    line-height: 1.3;
     transition: color 0.25s;
   }
   .process-block:hover .proc-title { color: #39b54a; }
   .process-block .proc-steps {
     list-style: none;
     padding: 0;
-    margin: 0 0 10px;
+    margin: 10px 0 12px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 10px;
   }
   .process-block .proc-steps li {
-    font-size: 12px;
+    font-size: 12.5px;
     color: #888;
-    line-height: 1.6;
-    padding: 3px 0 3px 16px;
+    line-height: 1.55;
+    padding: 3px 0 3px 18px;
     position: relative;
   }
   .process-block .proc-steps li::before {
-    content: '›';
+    content: '';
     position: absolute;
     left: 2px;
-    color: #39b54a;
-    font-weight: 700;
-    font-size: 14px;
-    transition: transform 0.2s;
+    top: 9px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #39b54a;
+    opacity: 0.35;
+    transition: opacity 0.2s;
   }
-  .process-block:hover .proc-steps li::before { transform: translateX(2px); }
+  .process-block:hover .proc-steps li::before { opacity: 0.7; }
   .process-block .proc-tag {
     align-self: flex-start;
     margin-top: auto;
-    padding: 4px 14px;
-    background: rgba(57,181,74,0.1);
-    color: #39b54a;
-    border-radius: 20px;
+    padding: 3px 12px;
+    background: rgba(255,255,255,0.04);
+    color: #666;
+    border-radius: 16px;
     font-size: 10px;
-    font-weight: 600;
-    transition: background 0.25s ease, transform 0.25s ease;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: color 0.25s, background 0.25s;
   }
-  .process-block:hover .proc-tag { background: rgba(57,181,74,0.2); transform: translateX(3px); }
+  .process-block:hover .proc-tag { color: #39b54a; background: rgba(57,181,74,0.1); }
+
+  /* ===== MODAL STEP HIERARCHY ===== */
+  .step-body {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #eee;
+  }
+  .step-sub {
+    font-size: 12px;
+    font-weight: 700;
+    color: #39b54a;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    margin-bottom: 6px;
+  }
+  .step-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 16px;
+    padding: 14px 16px;
+    background: #f8faf8;
+    border-left: 3px solid #39b54a;
+    border-radius: 0 10px 10px 0;
+  }
+  .step-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .step-list li {
+    padding: 9px 0 9px 32px;
+    position: relative;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #444;
+  }
+  .step-list li:last-child {
+    border-bottom: none;
+  }
+  .step-list li .step-num {
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(57,181,74,0.12);
+    color: #2e7d32;
+    font-weight: 700;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ===== STEP CARD COMPONENT ===== */
+  .step-card {
+    background: #232323;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .step-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .step-card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .step-card-num {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    border-radius: 10px;
+    background: rgba(57,181,74,0.15);
+    color: #39b54a;
+    font-weight: 800;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .step-card-header-info {
+    flex: 1;
+  }
+  .step-card-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #39b54a;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+  }
+  .step-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #e0e0e0;
+    margin-top: 2px;
+    line-height: 1.3;
+  }
+  .step-card-body {
+    padding: 18px 20px;
+    color: #bbb;
+  }
+  .step-section {
+    margin-bottom: 16px;
+  }
+  .step-section:last-child {
+    margin-bottom: 0;
+  }
+  .step-section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #888;
+  }
+  .step-section-header i {
+    font-size: 13px;
+    width: 18px;
+    text-align: center;
+    color: #39b54a;
+    opacity: 0.7;
+  }
+  .step-section-header .hl-que { color: #5dade2; opacity: 0.9; }
+  .step-section-header .hl-porque { color: #f0b27a; opacity: 0.9; }
+  .step-section-header .hl-proposito { color: #82e0aa; opacity: 0.9; }
+  .step-card-purpose {
+    font-size: 13px;
+    line-height: 1.65;
+    color: #a0d8b0;
+    padding: 10px 14px;
+    background: rgba(57,181,74,0.06);
+    border-left: 3px solid rgba(57,181,74,0.3);
+    border-radius: 0 6px 6px 0;
+    margin: 0;
+  }
+  .step-section + .step-section {
+    margin-top: 16px;
+  }
+
+  .lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightbox-overlay.show {
+    display: flex;
+  }
+  .lightbox-close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background 0.2s, transform 0.2s;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightbox-close:hover {
+    background: rgba(255,255,255,0.18);
+    transform: scale(1.08);
+  }
+  .lightbox-content {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+  }
+  .lightbox-content img,
+  .lightbox-content video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .lb-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: rgba(0,0,0,0.55);
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 10001;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  .lb-nav:hover { background: rgba(57,181,74,0.7); transform: translateY(-50%) scale(1.1); }
+  .lb-prev { left: 24px; }
+  .lb-next { right: 24px; }
+  .lb-counter {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    z-index: 10001;
+    background: rgba(0,0,0,0.5);
+    padding: 4px 14px;
+    border-radius: 20px;
+    display: none;
+  }
+  .step-card-brief {
+    font-size: 13px;
+    line-height: 1.65;
+    color: #999;
+    margin-bottom: 14px;
+  }
+  .step-action-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .step-action-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .step-action-card:hover {
+    border-color: rgba(57,181,74,0.2);
+    background: rgba(57,181,74,0.03);
+  }
+  .step-action-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+  }
+  .step-action-thumb {
+    flex-shrink: 0;
+    width: 56px;
+    height: 40px;
+    border-radius: 6px;
+    overflow: visible;
+    background: rgba(255,255,255,0.04);
+    border: 1px dashed rgba(255,255,255,0.08);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s, background 0.2s;
+    position: relative;
+  }
+  .step-action-thumb:hover {
+    border-color: rgba(57,181,74,0.4);
+    background: rgba(57,181,74,0.05);
+  }
+  .step-action-thumb .sat-media {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 5px;
+  }
+  .step-action-thumb .sat-media i {
+    font-size: 14px;
+    color: #555;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+  }
+  .step-action-thumb:hover .sat-media i {
+    opacity: 0.9;
+    color: #39b54a;
+  }
+  .step-action-thumb .sat-media img,
+  .step-action-thumb .sat-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .step-action-thumb.has-media {
+    border-style: solid;
+    border-color: rgba(255,255,255,0.08);
+  }
+  .step-action-thumb.has-media .sat-media i { display: none; }
+
+  .sat-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 18px;
+    background: rgba(0,0,0,0.45);
+    border: none;
+    color: #fff;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 2px;
+    z-index: 3;
+    transition: background 0.15s;
+  }
+  .sat-nav:hover { background: rgba(0,0,0,0.7); }
+  .sat-nav i { font-size: 6px; }
+  .sat-prev { left: 1px; }
+  .sat-next { right: 1px; }
+  .step-action-thumb:hover .sat-nav { display: flex; }
+  .step-action-thumb .sat-nav.multi { display: flex; }
+
+  .sat-dots {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    margin-left: 10px;
+  }
+  .sat-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    flex-shrink: 0;
+  }
+  .sat-dot:hover { background: rgba(255,255,255,0.3); }
+  .sat-dot.active { background: #39b54a; transform: scale(1.4); }
+  .step-action-label {
+    font-size: 13px;
+    color: #ccc;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  /* ===== STEP PROGRESS ===== */
+  .step-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 20px;
+    padding: 0 10px;
+  }
+  .step-progress-dot {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    color: #555;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    z-index: 1;
+  }
+  .step-progress-dot.done {
+    background: rgba(57,181,74,0.2);
+    color: #39b54a;
+  }
+  .step-progress-dot.active {
+    background: #39b54a;
+    color: #fff;
+    transform: scale(1.15);
+    box-shadow: 0 0 12px rgba(57,181,74,0.4);
+  }
+  .step-progress-line {
+    flex: 1;
+    max-width: 40px;
+    height: 2px;
+    background: rgba(255,255,255,0.08);
+    transition: background 0.3s;
+  }
+  .step-progress-line.done {
+    background: rgba(57,181,74,0.3);
+  }
+  @media (max-width: 600px) {
+    .step-progress { margin-bottom: 14px; }
+    .step-progress-dot { width: 26px; height: 26px; min-width: 26px; font-size: 11px; }
+    .step-progress-line { max-width: 24px; }
+  }
+
   @media (max-width: 900px) {
-    .process-grid { gap: 12px; }
+    .process-grid { gap: 16px; }
     .process-block { padding: 18px 16px; }
   }
   @media (max-width: 600px) {
-    .process-grid { grid-template-columns: 1fr !important; max-width: 400px; }
+    .process-grid, .process-grid-3 { grid-template-columns: 1fr !important; max-width: 400px; }
     .process-block { padding: 16px 14px; }
+    .process-section { margin-bottom: 24px; }
+    .process-section-label { margin-bottom: 12px; font-size: 10px; }
+    .lb-nav { width: 40px; height: 40px; font-size: 16px; }
+    .lb-prev { left: 12px; }
+    .lb-next { right: 12px; }
+    .lb-counter { font-size: 11px; padding: 3px 10px; bottom: 16px; }
+    .lightbox-close { width: 36px; height: 36px; font-size: 16px; top: 12px; right: 12px; }
   }
 
   @media (max-width: 900px) {
@@ -1603,7 +2042,7 @@
   /* ===== ACCESSIBILITY & TOUCH ===== */
   @media (hover: hover) {
     .card:hover .card-icon { transform: scale(1.08); }
-    .process-block:hover { transform: translateY(-4px); }
+    .process-block:hover { transform: translateY(-2px); }
   }
   @media (hover: none) {
     .card:active { transform: scale(0.98); }
@@ -1773,9 +2212,9 @@
     <div class="slide-logo"><img src="images/logo-sena-blanco.png" alt="SENA" onerror="this.style.display='none'"></div>
     <div class="slide-content" style="text-align:center;">
       <div class="slide-label" style="font-size:14px;">Fase 1 · Laboratorio</div>
-      <div class="slide-accent-line" style="margin:0 auto 20px;"></div>
+      <div class="slide-accent-line"></div>
       <h2 class="slide-title" style="font-size:26px;margin-bottom:4px;color:#e0e0e0;">Preparación y Caracterización de Materia Prima</h2>
-      <p class="slide-subtitle" style="margin:0 auto 28px;color:#999;">Acondicionamiento del aceite residual y preparación del catalizador</p>
+      <p class="slide-subtitle">Acondicionamiento del aceite residual y preparación del catalizador</p>
       <div class="process-grid">
         <div class="process-block" onclick="openFase1Modal(1)">
           <div class="proc-top">
@@ -1847,10 +2286,10 @@
     <div class="slide-logo"><img src="images/logo-sena-blanco.png" alt="SENA" onerror="this.style.display='none'"></div>
     <div class="slide-content" style="text-align:center;">
       <div class="slide-label" style="font-size:14px;">Fase 2 · Transformación</div>
-      <div class="slide-accent-line" style="margin:0 auto 20px;"></div>
+      <div class="slide-accent-line"></div>
       <h2 class="slide-title" style="font-size:26px;margin-bottom:4px;color:#e0e0e0;">Esterificación, Transesterificación y Separación</h2>
-      <p class="slide-subtitle" style="margin:0 auto 28px;color:#999;">Conversión de aceite tratado en ésteres metílicos y separación de glicerina</p>
-      <div class="process-grid" style="grid-template-columns:1fr 1fr 1fr;">
+      <p class="slide-subtitle">Conversión de aceite tratado en ésteres metílicos y separación de glicerina</p>
+      <div class="process-grid process-grid-3">
         <div class="process-block" onclick="openFase2Modal(1)">
           <div class="proc-top">
             <div class="proc-icon"><i class="fas fa-vial"></i></div>
@@ -1908,111 +2347,115 @@
     <div class="slide-logo"><img src="images/logo-sena-blanco.png" alt="SENA" onerror="this.style.display='none'"></div>
     <div class="slide-content" style="text-align:center;">
       <div class="slide-label" style="font-size:14px;">Fase 3 · Purificación y Caracterización</div>
-      <div class="slide-accent-line" style="margin:0 auto 18px;"></div>
-      <h2 class="slide-title" style="font-size:24px;margin-bottom:2px;color:#e0e0e0;">Purificación y Caracterización Final</h2>
-      <p class="slide-subtitle" style="margin:0 auto 20px;color:#999;">Eliminación de impurezas y verificación de calidad del biodiesel</p>
+      <div class="slide-accent-line"></div>
+      <h2 class="slide-title" style="font-size:26px;margin-bottom:4px;color:#e0e0e0;">Purificación y Caracterización Final</h2>
+      <p class="slide-subtitle">Eliminación de impurezas y verificación de calidad del biodiesel</p>
 
-      <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#39b54a;margin-bottom:10px;font-weight:600;">Purificación</div>
-      <div class="process-grid" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:24px;">
-        <div class="process-block" onclick="openFase3Modal(1)">
-          <div class="proc-top">
-            <div class="proc-icon"><i class="fas fa-shower"></i></div>
-            <div class="proc-info">
-              <div class="proc-label">Paso 1 · Lavado</div>
-              <div class="proc-title">Lavado por aspersión</div>
+      <div class="process-section">
+        <div class="process-section-label">Purificación</div>
+        <div class="process-grid process-grid-3">
+          <div class="process-block" onclick="openFase3Modal(1)">
+            <div class="proc-top">
+              <div class="proc-icon"><i class="fas fa-shower"></i></div>
+              <div class="proc-info">
+                <div class="proc-label">Paso 1 · Lavado</div>
+                <div class="proc-title">Lavado por aspersión</div>
+              </div>
             </div>
+            <ul class="proc-steps">
+              <li>Eliminar catalizador, metanol y jabones</li>
+              <li>Usar agua destilada ≤10% del volumen</li>
+              <li>Mezclar suavemente y separar</li>
+              <li>Registrar volumen y número de lavados</li>
+            </ul>
+            <span class="proc-tag">Ver más</span>
           </div>
-          <ul class="proc-steps">
-            <li>Eliminar catalizador, metanol y jabones</li>
-            <li>Usar agua destilada ≤10% del volumen</li>
-            <li>Mezclar suavemente y separar</li>
-            <li>Registrar volumen y número de lavados</li>
-          </ul>
-          <span class="proc-tag">Ver más</span>
-        </div>
-        <div class="process-block" onclick="openFase3Modal(2)">
-          <div class="proc-top">
-            <div class="proc-icon"><i class="fas fa-tachometer-alt"></i></div>
-            <div class="proc-info">
-              <div class="proc-label">Paso 2 · Centrifugación</div>
-              <div class="proc-title">Centrifugación de humedad</div>
+          <div class="process-block" onclick="openFase3Modal(2)">
+            <div class="proc-top">
+              <div class="proc-icon"><i class="fas fa-tachometer-alt"></i></div>
+              <div class="proc-info">
+                <div class="proc-label">Paso 2 · Centrifugación</div>
+                <div class="proc-title">Centrifugación de humedad</div>
+              </div>
             </div>
+            <ul class="proc-steps">
+              <li>Reducir agua libre tras el lavado</li>
+              <li>Transferir a tubos y balancear</li>
+              <li>Centrifugar 3800–4000 rpm × 15–20 min</li>
+              <li>Recuperar fase superior transparente</li>
+            </ul>
+            <span class="proc-tag">Ver más</span>
           </div>
-          <ul class="proc-steps">
-            <li>Reducir agua libre tras el lavado</li>
-            <li>Transferir a tubos y balancear</li>
-            <li>Centrifugar 3800–4000 rpm × 15–20 min</li>
-            <li>Recuperar fase superior transparente</li>
-          </ul>
-          <span class="proc-tag">Ver más</span>
-        </div>
-        <div class="process-block" onclick="openFase3Modal(3)">
-          <div class="proc-top">
-            <div class="proc-icon"><i class="fas fa-fire"></i></div>
-            <div class="proc-info">
-              <div class="proc-label">Paso 3 · Secado</div>
-              <div class="proc-title">Secado final</div>
+          <div class="process-block" onclick="openFase3Modal(3)">
+            <div class="proc-top">
+              <div class="proc-icon"><i class="fas fa-fire"></i></div>
+              <div class="proc-info">
+                <div class="proc-label">Paso 3 · Secado</div>
+                <div class="proc-title">Secado final</div>
+              </div>
             </div>
+            <ul class="proc-steps">
+              <li>Eliminar humedad residual y trazas de metanol</li>
+              <li>Transferir a sistema de vacío o calor</li>
+              <li>Mantener condiciones de operación</li>
+              <li>Obtener producto transparente y estable</li>
+            </ul>
+            <span class="proc-tag">Ver más</span>
           </div>
-          <ul class="proc-steps">
-            <li>Eliminar humedad residual y trazas de metanol</li>
-            <li>Transferir a sistema de vacío o calor</li>
-            <li>Mantener condiciones de operación</li>
-            <li>Obtener producto transparente y estable</li>
-          </ul>
-          <span class="proc-tag">Ver más</span>
         </div>
       </div>
 
-      <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#39b54a;margin-bottom:10px;font-weight:600;">Caracterización</div>
-      <div class="process-grid" style="grid-template-columns:1fr 1fr 1fr;">
-        <div class="process-block" onclick="openFase3Modal(4)">
-          <div class="proc-top">
-            <div class="proc-icon"><i class="fas fa-flask"></i></div>
-            <div class="proc-info">
-              <div class="proc-label">Paso 4 · Químico</div>
-              <div class="proc-title">Conversión de ésteres</div>
+      <div class="process-section">
+        <div class="process-section-label">Caracterización</div>
+        <div class="process-grid process-grid-3">
+          <div class="process-block" onclick="openFase3Modal(4)">
+            <div class="proc-top">
+              <div class="proc-icon"><i class="fas fa-flask"></i></div>
+              <div class="proc-info">
+                <div class="proc-label">Paso 4 · Químico</div>
+                <div class="proc-title">Conversión de ésteres</div>
+              </div>
             </div>
+            <ul class="proc-steps">
+              <li>Evaluar conversión de triglicéridos</li>
+              <li>Mezclar 27 mL metanol + 3 mL producto</li>
+              <li>Agitar 30 s y reposar 2 min</li>
+              <li>Evaluar transparencia y homogeneidad</li>
+            </ul>
+            <span class="proc-tag">Ver más</span>
           </div>
-          <ul class="proc-steps">
-            <li>Evaluar conversión de triglicéridos</li>
-            <li>Mezclar 27 mL metanol + 3 mL producto</li>
-            <li>Agitar 30 s y reposar 2 min</li>
-            <li>Evaluar transparencia y homogeneidad</li>
-          </ul>
-          <span class="proc-tag">Ver más</span>
-        </div>
-        <div class="process-block" onclick="openFase3Modal(5)">
-          <div class="proc-top">
-            <div class="proc-icon"><i class="fas fa-tint"></i></div>
-            <div class="proc-info">
-              <div class="proc-label">Paso 5 · Calidad</div>
-              <div class="proc-title">Evaluación de humedad</div>
+          <div class="process-block" onclick="openFase3Modal(5)">
+            <div class="proc-top">
+              <div class="proc-icon"><i class="fas fa-tint"></i></div>
+              <div class="proc-info">
+                <div class="proc-label">Paso 5 · Calidad</div>
+                <div class="proc-title">Evaluación de humedad</div>
+              </div>
             </div>
+            <ul class="proc-steps">
+              <li>Verificar agua residual en el producto</li>
+              <li>Calentar muestra a 120–130 °C</li>
+              <li>Observar burbujeo o chisporroteo</li>
+              <li>Ausencia de burbujas = baja humedad</li>
+            </ul>
+            <span class="proc-tag">Ver más</span>
           </div>
-          <ul class="proc-steps">
-            <li>Verificar agua residual en el producto</li>
-            <li>Calentar muestra a 120–130 °C</li>
-            <li>Observar burbujeo o chisporroteo</li>
-            <li>Ausencia de burbujas = baja humedad</li>
-          </ul>
-          <span class="proc-tag">Ver más</span>
-        </div>
-        <div class="process-block" onclick="openFase3Modal(6)">
-          <div class="proc-top">
-            <div class="proc-icon"><i class="fas fa-hand-paper"></i></div>
-            <div class="proc-info">
-              <div class="proc-label">Paso 6 · Físico</div>
-              <div class="proc-title">Desempeño físico</div>
+          <div class="process-block" onclick="openFase3Modal(6)">
+            <div class="proc-top">
+              <div class="proc-icon"><i class="fas fa-hand-paper"></i></div>
+              <div class="proc-info">
+                <div class="proc-label">Paso 6 · Físico</div>
+                <div class="proc-title">Desempeño físico</div>
+              </div>
             </div>
+            <ul class="proc-steps">
+              <li>Determinar poder de solvencia</li>
+              <li>Aplicar sobre superficie con suciedad</li>
+              <li>Evaluar capacidad de limpieza</li>
+              <li>Registrar observaciones de desempeño</li>
+            </ul>
+            <span class="proc-tag">Ver más</span>
           </div>
-          <ul class="proc-steps">
-            <li>Determinar poder de solvencia</li>
-            <li>Aplicar sobre superficie con suciedad</li>
-            <li>Evaluar capacidad de limpieza</li>
-            <li>Registrar observaciones de desempeño</li>
-          </ul>
-          <span class="proc-tag">Ver más</span>
         </div>
       </div>
     </div>
@@ -2806,92 +3249,138 @@
     </div>
     <div class="modal-body" style="padding:20px 24px 24px;">
 
+      <div id="prog-fase1" class="step-progress">
+        <div class="step-progress-dot active"><span>1</span></div>
+        <div class="step-progress-line"></div>
+        <div class="step-progress-dot"><span>2</span></div>
+        <div class="step-progress-line"></div>
+        <div class="step-progress-dot"><span>3</span></div>
+        <div class="step-progress-line"></div>
+        <div class="step-progress-dot"><span>4</span></div>
+      </div>
+
       <!-- Step 1: Recolección -->
       <div class="step-content active" data-step="1">
-        <div class="media-upload" data-upload="f1s1">
-          <div class="upload-placeholder">
-            <i class="fas fa-cloud-upload-alt upload-icon"></i>
-            <span style="font-size:15px;color:#555;font-weight:500;">Arrastra tu imagen o video aquí o haz clic para subir</span>
-            <span style="font-size:11px;color:#999;margin-top:4px;">Formatos: PNG, JPG, MP4, WebM · 16:9 recomendado</span>
-            <input type="file" accept="image/*,video/*" style="display:none;">
+        <div class="step-card">
+          <div class="step-card-header">
+            <span class="step-card-num">01</span>
+            <div class="step-card-header-info">
+              <div class="step-card-label">Paso 1 · Inicio</div>
+              <div class="step-card-title">Recolección y filtrado del aceite</div>
+            </div>
           </div>
-          <div class="media-preview" style="display:none;"></div>
-        </div>
-        <div style="margin-top:16px;padding-top:16px;border-top:1px solid #eee;">
-          <p style="font-size:15px;line-height:1.8;color:var(--text);margin-bottom:8px;color:#39b54a;font-weight:600;">Paso 1 · Inicio</p>
-          <p style="font-size:14px;line-height:1.8;color:var(--text);margin-bottom:12px;">Su importancia radica en que una materia prima limpia es la base de un proceso eficiente y prolonga la vida útil del reactor.</p>
-          <ul style="list-style:none;padding:0;margin:0;">
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">1</span> Recolectar aceite vegetal usado de fuentes locales</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">2</span> Filtrar con malla o papel para eliminar sólidos y residuos grandes</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">3</span> Almacenar en recipientes limpios y herméticos para evitar contaminación</li>
-          </ul>
+          <div class="step-card-body">
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
+              <div class="step-action-list">
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Recolectar aceite vegetal usado</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Filtrar con malla o papel</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Almacenar en recipientes herméticos</span></div>
+              </div>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
+              <p class="step-card-brief">Acondicionar el aceite residual eliminando sólidos y residuos para obtener una materia prima limpia que garantice un proceso eficiente.</p>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
+              <p class="step-card-purpose">Obtener una materia prima homogénea y libre de impurezas que garantice la eficiencia de las reacciones posteriores.</p>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Step 2: Caracterización -->
       <div class="step-content" data-step="2">
-        <div class="media-upload" data-upload="f1s2">
-          <div class="upload-placeholder">
-            <i class="fas fa-cloud-upload-alt upload-icon"></i>
-            <span style="font-size:15px;color:#555;font-weight:500;">Arrastra tu imagen o video aquí o haz clic para subir</span>
-            <span style="font-size:11px;color:#999;margin-top:4px;">Formatos: PNG, JPG, MP4, WebM · 16:9 recomendado</span>
-            <input type="file" accept="image/*,video/*" style="display:none;">
+        <div class="step-card">
+          <div class="step-card-header">
+            <span class="step-card-num">02</span>
+            <div class="step-card-header-info">
+              <div class="step-card-label">Paso 2 · Control</div>
+              <div class="step-card-title">Caracterización del aceite</div>
+            </div>
           </div>
-          <div class="media-preview" style="display:none;"></div>
-        </div>
-        <div style="margin-top:16px;padding-top:16px;border-top:1px solid #eee;">
-          <p style="font-size:15px;line-height:1.8;color:var(--text);margin-bottom:8px;color:#39b54a;font-weight:600;">Paso 2 · Control</p>
-          <p style="font-size:14px;line-height:1.8;color:var(--text);margin-bottom:12px;">Es crucial porque determina si el aceite es apto para la reacción y permite calcular la cantidad exacta de catalizador necesaria.</p>
-          <ul style="list-style:none;padding:0;margin:0;">
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">1</span> Medir índice de acidez del aceite</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">2</span> Determinar densidad del aceite</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">3</span> Evaluar contenido de humedad</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">4</span> Realizar lavado y secado del aceite</li>
-          </ul>
+          <div class="step-card-body">
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
+              <div class="step-action-list">
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Medir índice de acidez</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Determinar densidad</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Evaluar contenido de humedad</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Lavar y secar el aceite</span></div>
+              </div>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
+              <p class="step-card-brief">Determinar las propiedades fisicoquímicas del aceite para evaluar su aptitud en la reacción y calcular la cantidad exacta de catalizador.</p>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
+              <p class="step-card-purpose">Conocer las propiedades del aceite para calcular con precisión la cantidad de catalizador necesaria y asegurar una conversión óptima.</p>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Step 3: Estandarización -->
       <div class="step-content" data-step="3">
-        <div class="media-upload" data-upload="f1s3">
-          <div class="upload-placeholder">
-            <i class="fas fa-cloud-upload-alt upload-icon"></i>
-            <span style="font-size:15px;color:#555;font-weight:500;">Arrastra tu imagen o video aquí o haz clic para subir</span>
-            <span style="font-size:11px;color:#999;margin-top:4px;">Formatos: PNG, JPG, MP4, WebM · 16:9 recomendado</span>
-            <input type="file" accept="image/*,video/*" style="display:none;">
+        <div class="step-card">
+          <div class="step-card-header">
+            <span class="step-card-num">03</span>
+            <div class="step-card-header-info">
+              <div class="step-card-label">Paso 3 · Preparación</div>
+              <div class="step-card-title">Estandarización de reactivos</div>
+            </div>
           </div>
-          <div class="media-preview" style="display:none;"></div>
-        </div>
-        <div style="margin-top:16px;padding-top:16px;border-top:1px solid #eee;">
-          <p style="font-size:15px;line-height:1.8;color:var(--text);margin-bottom:8px;color:#39b54a;font-weight:600;">Paso 3 · Preparación</p>
-          <p style="font-size:14px;line-height:1.8;color:var(--text);margin-bottom:12px;">Su importancia está en que la relación molar correcta entre alcohol y aceite maximiza la conversión y evita la formación de jabones.</p>
-          <ul style="list-style:none;padding:0;margin:0;">
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">1</span> Preparar soluciones de KOH y metanol</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">2</span> Determinar concentraciones reales</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">3</span> Ajustar volúmenes para garantizar rendimiento</li>
-          </ul>
+          <div class="step-card-body">
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
+              <div class="step-action-list">
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Preparar soluciones KOH y metanol</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Determinar concentraciones reales</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Ajustar volúmenes para rendimiento</span></div>
+              </div>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
+              <p class="step-card-brief">Preparar y ajustar las soluciones de KOH y metanol para maximizar la conversión y evitar la formación de jabones.</p>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
+              <p class="step-card-purpose">Garantizar que las soluciones reactivas tengan la concentración exacta para maximizar el rendimiento de la transesterificación.</p>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Step 4: Catalizador -->
       <div class="step-content" data-step="4">
-        <div class="media-upload" data-upload="f1s4">
-          <div class="upload-placeholder">
-            <i class="fas fa-cloud-upload-alt upload-icon"></i>
-            <span style="font-size:15px;color:#555;font-weight:500;">Arrastra tu imagen o video aquí o haz clic para subir</span>
-            <span style="font-size:11px;color:#999;margin-top:4px;">Formatos: PNG, JPG, MP4, WebM · 16:9 recomendado</span>
-            <input type="file" accept="image/*,video/*" style="display:none;">
+        <div class="step-card">
+          <div class="step-card-header">
+            <span class="step-card-num">04</span>
+            <div class="step-card-header-info">
+              <div class="step-card-label">Paso 4 · Clave</div>
+              <div class="step-card-title">Producción del catalizador</div>
+            </div>
           </div>
-          <div class="media-preview" style="display:none;"></div>
-        </div>
-        <div style="margin-top:16px;padding-top:16px;border-top:1px solid #eee;">
-          <p style="font-size:15px;line-height:1.8;color:var(--text);margin-bottom:8px;color:#39b54a;font-weight:600;">Paso 4 · Clave</p>
-          <p style="font-size:14px;line-height:1.8;color:var(--text);margin-bottom:12px;">Es clave porque acelera la transesterificación y garantiza un alto rendimiento en la producción de ésteres metílicos.</p>
-          <ul style="list-style:none;padding:0;margin:0;">
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">1</span> Mezclar metanol con KOH según estandarización</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">2</span> Verificar homogeneidad de la solución</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">3</span> Almacenar en condiciones seguras</li>
-          </ul>
+          <div class="step-card-body">
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
+              <div class="step-action-list">
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Mezclar metanol con KOH estandarizado</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Verificar homogeneidad de la solución</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Almacenar en condiciones seguras</span></div>
+              </div>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
+              <p class="step-card-brief">Sintetizar el metóxido de potasio (KOH + metanol) necesario para acelerar la reacción de transesterificación.</p>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
+              <p class="step-card-purpose">Generar el metóxido de potasio necesario para catalizar la reacción de transesterificación de forma eficiente.</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -2914,76 +3403,109 @@
     </div>
     <div class="modal-body" style="padding:20px 24px 24px;">
 
+      <div id="prog-fase2" class="step-progress">
+        <div class="step-progress-dot active"><span>1</span></div>
+        <div class="step-progress-line"></div>
+        <div class="step-progress-dot"><span>2</span></div>
+        <div class="step-progress-line"></div>
+        <div class="step-progress-dot"><span>3</span></div>
+      </div>
+
       <!-- Step 1: Esterificación Ácida -->
       <div class="step-content active" data-step="1">
-        <div class="media-upload" data-upload="f2s1">
-          <div class="upload-placeholder">
-            <i class="fas fa-cloud-upload-alt upload-icon"></i>
-            <span style="font-size:15px;color:#555;font-weight:500;">Arrastra tu imagen o video aquí o haz clic para subir</span>
-            <span style="font-size:11px;color:#999;margin-top:4px;">Formatos: PNG, JPG, MP4, WebM · 16:9 recomendado</span>
-            <input type="file" accept="image/*,video/*" style="display:none;">
+        <div class="step-card">
+          <div class="step-card-header">
+            <span class="step-card-num">01</span>
+            <div class="step-card-header-info">
+              <div class="step-card-label">Paso 1 · Condicional</div>
+              <div class="step-card-title">Esterificación Ácida</div>
+            </div>
           </div>
-          <div class="media-preview" style="display:none;"></div>
-        </div>
-        <div style="margin-top:16px;padding-top:16px;border-top:1px solid #eee;">
-          <p style="font-size:15px;line-height:1.8;color:var(--text);margin-bottom:8px;color:#39b54a;font-weight:600;">Paso 1 · Condicional</p>
-          <p style="font-size:14px;line-height:1.8;color:var(--text);margin-bottom:12px;">Reduce los ácidos grasos libres para evitar la formación de jabones durante la transesterificación alcalina.</p>
-          <ul style="list-style:none;padding:0;margin:0;">
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">1</span> Aplicar solo si índice de acidez &gt; 2%</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">2</span> Usar 10 mL de metanol por cada 100 mL de aceite</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">3</span> Añadir 1 g de H₂SO₄ como catalizador</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">4</span> Calentar a 55–60 °C y agitar 60–90 min</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">5</span> Enfriar, decantar y retirar exceso de agua/alcohol</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">6</span> Verificar nuevamente índice de acidez</li>
-          </ul>
+          <div class="step-card-body">
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
+              <div class="step-action-list">
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Aplicar si acidez &gt; 2%</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Añadir metanol + H₂SO₄</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Calentar 55–60 °C · 60–90 min</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Enfriar, decantar y verificar acidez</span></div>
+              </div>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
+              <p class="step-card-brief">Reducir los ácidos grasos libres del aceite para evitar la formación de jabones durante la transesterificación alcalina.</p>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
+              <p class="step-card-purpose">Reducir la acidez del aceite por debajo del 2% para evitar la formación de jabones que inhiben la transesterificación alcalina.</p>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Step 2: Transesterificación Alcalina -->
       <div class="step-content" data-step="2">
-        <div class="media-upload" data-upload="f2s2">
-          <div class="upload-placeholder">
-            <i class="fas fa-cloud-upload-alt upload-icon"></i>
-            <span style="font-size:15px;color:#555;font-weight:500;">Arrastra tu imagen o video aquí o haz clic para subir</span>
-            <span style="font-size:11px;color:#999;margin-top:4px;">Formatos: PNG, JPG, MP4, WebM · 16:9 recomendado</span>
-            <input type="file" accept="image/*,video/*" style="display:none;">
+        <div class="step-card">
+          <div class="step-card-header">
+            <span class="step-card-num">02</span>
+            <div class="step-card-header-info">
+              <div class="step-card-label">Paso 2 · Objetivo</div>
+              <div class="step-card-title">Transesterificación Alcalina</div>
+            </div>
           </div>
-          <div class="media-preview" style="display:none;"></div>
-        </div>
-        <div style="margin-top:16px;padding-top:16px;border-top:1px solid #eee;">
-          <p style="font-size:15px;line-height:1.8;color:var(--text);margin-bottom:8px;color:#39b54a;font-weight:600;">Paso 2 · Objetivo</p>
-          <p style="font-size:14px;line-height:1.8;color:var(--text);margin-bottom:12px;">Convierte los triglicéridos en ésteres metílicos de ácidos grasos, que son el producto principal del proceso.</p>
-          <ul style="list-style:none;padding:0;margin:0;">
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">1</span> Calentar 100 mL de aceite a 60 °C</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">2</span> Iniciar agitación mecánica o magnética</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">3</span> Incorporar lentamente solución de metóxido (Metanol + KOH)</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">4</span> Mantener 58–61 °C durante 30–45 min</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">5</span> Suspender calentamiento y agitación al finalizar</li>
-          </ul>
+          <div class="step-card-body">
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
+              <div class="step-action-list">
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Calentar aceite a 60 °C</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Iniciar agitación</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Incorporar metóxido (Metanol + KOH)</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Mantener 58–61 °C · 30–45 min</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Suspender calentamiento y agitación</span></div>
+              </div>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
+              <p class="step-card-brief">Convertir los triglicéridos en ésteres metílicos de ácidos grasos (biodiesel) mediante catálisis básica con metóxido.</p>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
+              <p class="step-card-purpose">Convertir los triglicéridos del aceite en ésteres metílicos (biodiesel) mediante la reacción con metóxido de potasio.</p>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Step 3: Centrifugación -->
       <div class="step-content" data-step="3">
-        <div class="media-upload" data-upload="f2s3">
-          <div class="upload-placeholder">
-            <i class="fas fa-cloud-upload-alt upload-icon"></i>
-            <span style="font-size:15px;color:#555;font-weight:500;">Arrastra tu imagen o video aquí o haz clic para subir</span>
-            <span style="font-size:11px;color:#999;margin-top:4px;">Formatos: PNG, JPG, MP4, WebM · 16:9 recomendado</span>
-            <input type="file" accept="image/*,video/*" style="display:none;">
+        <div class="step-card">
+          <div class="step-card-header">
+            <span class="step-card-num">03</span>
+            <div class="step-card-header-info">
+              <div class="step-card-label">Paso 3 · Separación</div>
+              <div class="step-card-title">Centrifugación</div>
+            </div>
           </div>
-          <div class="media-preview" style="display:none;"></div>
-        </div>
-        <div style="margin-top:16px;padding-top:16px;border-top:1px solid #eee;">
-          <p style="font-size:15px;line-height:1.8;color:var(--text);margin-bottom:8px;color:#39b54a;font-weight:600;">Paso 3 · Separación</p>
-          <p style="font-size:14px;line-height:1.8;color:var(--text);margin-bottom:12px;">Separa la fase rica en glicerina del producto principal, permitiendo cuantificar ambos subproductos.</p>
-          <ul style="list-style:none;padding:0;margin:0;">
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">1</span> Mantener mezcla a 45–55 °C</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">2</span> Distribuir en tubos de centrifugación y balancear</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">3</span> Centrifugar a 3000–3500 rpm por 10–15 min</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">4</span> Recuperar fase superior y cuantificar glicerina</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">5</span> Registrar masa/volumen de glicerina y fase orgánica</li>
-          </ul>
+          <div class="step-card-body">
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
+              <div class="step-action-list">
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Mantener mezcla a 45–55 °C</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Distribuir y balancear tubos</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Centrifugar 3000–3500 rpm · 10–15 min</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Recuperar fase superior</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Cuantificar glicerina separada</span></div>
+              </div>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
+              <p class="step-card-brief">Separar la fase rica en glicerina del biodiesel crudo por diferencia de densidades mediante centrifugación.</p>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
+              <p class="step-card-purpose">Separar el biodiesel crudo de la glicerina y otras fases pesadas para obtener un producto intermedio listo para purificar.</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -3006,138 +3528,206 @@
     </div>
     <div class="modal-body" style="padding:20px 24px 24px;">
 
+      <div id="prog-fase3" class="step-progress">
+        <div class="step-progress-dot active"><span>1</span></div>
+        <div class="step-progress-line"></div>
+        <div class="step-progress-dot"><span>2</span></div>
+        <div class="step-progress-line"></div>
+        <div class="step-progress-dot"><span>3</span></div>
+        <div class="step-progress-line"></div>
+        <div class="step-progress-dot"><span>4</span></div>
+        <div class="step-progress-line"></div>
+        <div class="step-progress-dot"><span>5</span></div>
+        <div class="step-progress-line"></div>
+        <div class="step-progress-dot"><span>6</span></div>
+      </div>
+
       <!-- Step 1: Lavado por aspersión -->
       <div class="step-content active" data-step="1">
-        <div class="media-upload" data-upload="f3s1">
-          <div class="upload-placeholder">
-            <i class="fas fa-cloud-upload-alt upload-icon"></i>
-            <span style="font-size:15px;color:#555;font-weight:500;">Arrastra tu imagen o video aquí o haz clic para subir</span>
-            <span style="font-size:11px;color:#999;margin-top:4px;">Formatos: PNG, JPG, MP4, WebM · 16:9 recomendado</span>
-            <input type="file" accept="image/*,video/*" style="display:none;">
+        <div class="step-card">
+          <div class="step-card-header">
+            <span class="step-card-num">01</span>
+            <div class="step-card-header-info">
+              <div class="step-card-label">Paso 1 · Lavado</div>
+              <div class="step-card-title">Lavado por aspersión</div>
+            </div>
           </div>
-          <div class="media-preview" style="display:none;"></div>
-        </div>
-        <div style="margin-top:16px;padding-top:16px;border-top:1px solid #eee;">
-          <p style="font-size:15px;line-height:1.8;margin-bottom:8px;color:#39b54a;font-weight:600;">Paso 1 · Lavado</p>
-          <p style="font-size:14px;line-height:1.8;color:var(--text);margin-bottom:12px;">Eliminar restos de catalizador, metanol y jabones mediante aspersión controlada.</p>
-          <ul style="list-style:none;padding:0;margin:0;">
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">1</span> Transferir producto a beaker de 250 mL</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">2</span> Aplicar agua destilada ≤10% del volumen</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">3</span> Mezclar suavemente y permitir separación</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">4</span> Registrar volumen de agua y número de lavados</li>
-          </ul>
+          <div class="step-card-body">
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
+              <div class="step-action-list">
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Transferir producto a beaker</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Aplicar agua destilada ≤10% vol.</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Mezclar suavemente y separar</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Registrar volumen y número de lavados</span></div>
+              </div>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
+              <p class="step-card-brief">Eliminar restos de catalizador, metanol y jabones del biodiesel crudo mediante aspersión controlada con agua destilada.</p>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
+              <p class="step-card-purpose">Eliminar los residuos de catalizador, metanol y jabones que afectan la calidad y estabilidad del biodiesel.</p>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Step 2: Centrifugación de humedad -->
       <div class="step-content" data-step="2">
-        <div class="media-upload" data-upload="f3s2">
-          <div class="upload-placeholder">
-            <i class="fas fa-cloud-upload-alt upload-icon"></i>
-            <span style="font-size:15px;color:#555;font-weight:500;">Arrastra tu imagen o video aquí o haz clic para subir</span>
-            <span style="font-size:11px;color:#999;margin-top:4px;">Formatos: PNG, JPG, MP4, WebM · 16:9 recomendado</span>
-            <input type="file" accept="image/*,video/*" style="display:none;">
+        <div class="step-card">
+          <div class="step-card-header">
+            <span class="step-card-num">02</span>
+            <div class="step-card-header-info">
+              <div class="step-card-label">Paso 2 · Centrifugación</div>
+              <div class="step-card-title">Centrifugación de humedad</div>
+            </div>
           </div>
-          <div class="media-preview" style="display:none;"></div>
-        </div>
-        <div style="margin-top:16px;padding-top:16px;border-top:1px solid #eee;">
-          <p style="font-size:15px;line-height:1.8;margin-bottom:8px;color:#39b54a;font-weight:600;">Paso 2 · Centrifugación</p>
-          <p style="font-size:14px;line-height:1.8;color:var(--text);margin-bottom:12px;">Reducir agua libre tras el lavado para obtener una fase orgánica más pura.</p>
-          <ul style="list-style:none;padding:0;margin:0;">
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">1</span> Transferir producto a tubos</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">2</span> Balancear adecuadamente</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">3</span> Centrifugar 3800–4000 rpm por 15–20 min</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">4</span> Recuperar fase superior transparente y cuantificar agua</li>
-          </ul>
+          <div class="step-card-body">
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
+              <div class="step-action-list">
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Transferir producto a tubos</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Balancear adecuadamente</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Centrifugar 3800–4000 rpm · 15–20 min</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Recuperar fase superior transparente</span></div>
+              </div>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
+              <p class="step-card-brief">Reducir el agua libre residual tras el lavado mediante centrifugación para obtener una fase orgánica más pura.</p>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
+              <p class="step-card-purpose">Reducir el contenido de agua libre para evitar la hidrólisis y el crecimiento microbiano en el biodiesel.</p>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Step 3: Secado final -->
       <div class="step-content" data-step="3">
-        <div class="media-upload" data-upload="f3s3">
-          <div class="upload-placeholder">
-            <i class="fas fa-cloud-upload-alt upload-icon"></i>
-            <span style="font-size:15px;color:#555;font-weight:500;">Arrastra tu imagen o video aquí o haz clic para subir</span>
-            <span style="font-size:11px;color:#999;margin-top:4px;">Formatos: PNG, JPG, MP4, WebM · 16:9 recomendado</span>
-            <input type="file" accept="image/*,video/*" style="display:none;">
+        <div class="step-card">
+          <div class="step-card-header">
+            <span class="step-card-num">03</span>
+            <div class="step-card-header-info">
+              <div class="step-card-label">Paso 3 · Secado</div>
+              <div class="step-card-title">Secado final</div>
+            </div>
           </div>
-          <div class="media-preview" style="display:none;"></div>
-        </div>
-        <div style="margin-top:16px;padding-top:16px;border-top:1px solid #eee;">
-          <p style="font-size:15px;line-height:1.8;margin-bottom:8px;color:#39b54a;font-weight:600;">Paso 3 · Secado</p>
-          <p style="font-size:14px;line-height:1.8;color:var(--text);margin-bottom:12px;">Eliminar humedad residual y trazas de metanol para obtener biodiesel purificado.</p>
-          <ul style="list-style:none;padding:0;margin:0;">
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">1</span> Transferir a sistema de secado o vacío</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">2</span> Mantener condiciones de operación</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">3</span> Continuar hasta obtener producto transparente</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">4</span> Verificar estabilidad del producto final</li>
-          </ul>
+          <div class="step-card-body">
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
+              <div class="step-action-list">
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Transferir a sistema de secado o vacío</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Mantener condiciones de operación</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Obtener producto transparente</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Verificar estabilidad del producto final</span></div>
+              </div>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
+              <p class="step-card-brief">Eliminar la humedad residual y trazas de metanol para obtener biodiesel purificado, transparente y estable.</p>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
+              <p class="step-card-purpose">Obtener un biodiesel transparente, anhidro y estable, libre de trazas de metanol y humedad.</p>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Step 4: Prueba de conversión de ésteres -->
       <div class="step-content" data-step="4">
-        <div class="media-upload" data-upload="f3s4">
-          <div class="upload-placeholder">
-            <i class="fas fa-cloud-upload-alt upload-icon"></i>
-            <span style="font-size:15px;color:#555;font-weight:500;">Arrastra tu imagen o video aquí o haz clic para subir</span>
-            <span style="font-size:11px;color:#999;margin-top:4px;">Formatos: PNG, JPG, MP4, WebM · 16:9 recomendado</span>
-            <input type="file" accept="image/*,video/*" style="display:none;">
+        <div class="step-card">
+          <div class="step-card-header">
+            <span class="step-card-num">04</span>
+            <div class="step-card-header-info">
+              <div class="step-card-label">Paso 4 · Químico</div>
+              <div class="step-card-title">Conversión de ésteres</div>
+            </div>
           </div>
-          <div class="media-preview" style="display:none;"></div>
-        </div>
-        <div style="margin-top:16px;padding-top:16px;border-top:1px solid #eee;">
-          <p style="font-size:15px;line-height:1.8;margin-bottom:8px;color:#39b54a;font-weight:600;">Paso 4 · Químico</p>
-          <p style="font-size:14px;line-height:1.8;color:var(--text);margin-bottom:12px;">Evaluar la conversión de triglicéridos a ésteres metílicos mediante prueba de solubilidad.</p>
-          <ul style="list-style:none;padding:0;margin:0;">
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">1</span> Mezclar 27 mL metanol + 3 mL producto</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">2</span> Agitar 30 segundos y reposar 2 min</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">3</span> Evaluar transparencia y homogeneidad</li>
-          </ul>
+          <div class="step-card-body">
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
+              <div class="step-action-list">
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Mezclar 27 mL metanol + 3 mL producto</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Agitar 30 s y reposar 2 min</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Evaluar transparencia y homogeneidad</span></div>
+              </div>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
+              <p class="step-card-brief">Evaluar la conversión de triglicéridos a ésteres metílicos mediante una prueba rápida de solubilidad en metanol.</p>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
+              <p class="step-card-purpose">Verificar que la transesterificación fue completa y que el producto cumple con el estándar de calidad requerido.</p>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Step 5: Evaluación de humedad -->
       <div class="step-content" data-step="5">
-        <div class="media-upload" data-upload="f3s5">
-          <div class="upload-placeholder">
-            <i class="fas fa-cloud-upload-alt upload-icon"></i>
-            <span style="font-size:15px;color:#555;font-weight:500;">Arrastra tu imagen o video aquí o haz clic para subir</span>
-            <span style="font-size:11px;color:#999;margin-top:4px;">Formatos: PNG, JPG, MP4, WebM · 16:9 recomendado</span>
-            <input type="file" accept="image/*,video/*" style="display:none;">
+        <div class="step-card">
+          <div class="step-card-header">
+            <span class="step-card-num">05</span>
+            <div class="step-card-header-info">
+              <div class="step-card-label">Paso 5 · Calidad</div>
+              <div class="step-card-title">Evaluación de humedad</div>
+            </div>
           </div>
-          <div class="media-preview" style="display:none;"></div>
-        </div>
-        <div style="margin-top:16px;padding-top:16px;border-top:1px solid #eee;">
-          <p style="font-size:15px;line-height:1.8;margin-bottom:8px;color:#39b54a;font-weight:600;">Paso 5 · Calidad</p>
-          <p style="font-size:14px;line-height:1.8;color:var(--text);margin-bottom:12px;">Verificar agua residual en el producto, un parámetro crítico para la calidad del biodiesel.</p>
-          <ul style="list-style:none;padding:0;margin:0;">
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">1</span> Calentar muestra a 120–130 °C</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">2</span> Observar burbujeo o chisporroteo</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">3</span> Ausencia de burbujas = bajo contenido de humedad</li>
-          </ul>
+          <div class="step-card-body">
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
+              <div class="step-action-list">
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Calentar muestra a 120–130 °C</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Observar burbujeo o chisporroteo</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Ausencia de burbujas = baja humedad</span></div>
+              </div>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
+              <p class="step-card-brief">Verificar el contenido de agua residual en el biodiesel, un parámetro crítico que afecta la calidad y estabilidad del producto.</p>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
+              <p class="step-card-purpose">Confirmar que el contenido de agua residual está dentro de los límites permitidos por las normativas.</p>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Step 6: Prueba de desempeño físico -->
       <div class="step-content" data-step="6">
-        <div class="media-upload" data-upload="f3s6">
-          <div class="upload-placeholder">
-            <i class="fas fa-cloud-upload-alt upload-icon"></i>
-            <span style="font-size:15px;color:#555;font-weight:500;">Arrastra tu imagen o video aquí o haz clic para subir</span>
-            <span style="font-size:11px;color:#999;margin-top:4px;">Formatos: PNG, JPG, MP4, WebM · 16:9 recomendado</span>
-            <input type="file" accept="image/*,video/*" style="display:none;">
+        <div class="step-card">
+          <div class="step-card-header">
+            <span class="step-card-num">06</span>
+            <div class="step-card-header-info">
+              <div class="step-card-label">Paso 6 · Físico</div>
+              <div class="step-card-title">Desempeño físico</div>
+            </div>
           </div>
-          <div class="media-preview" style="display:none;"></div>
-        </div>
-        <div style="margin-top:16px;padding-top:16px;border-top:1px solid #eee;">
-          <p style="font-size:15px;line-height:1.8;margin-bottom:8px;color:#39b54a;font-weight:600;">Paso 6 · Físico</p>
-          <p style="font-size:14px;line-height:1.8;color:var(--text);margin-bottom:12px;">Determinar poder de solvencia de suciedad del biodiesel como producto de limpieza.</p>
-          <ul style="list-style:none;padding:0;margin:0;">
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">1</span> Aplicar producto sobre superficie con suciedad</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">2</span> Evaluar capacidad de limpieza y disolución</li>
-            <li style="padding:8px 0 8px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:14px;line-height:1.5;"><span style="color:var(--primary);font-weight:700;position:absolute;left:0;">3</span> Registrar observaciones de desempeño</li>
-          </ul>
+          <div class="step-card-body">
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
+              <div class="step-action-list">
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Aplicar sobre superficie con suciedad</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Evaluar capacidad de limpieza</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*" class="sa-input" hidden></div><span class="step-action-label">Registrar observaciones de desempeño</span></div>
+              </div>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
+              <p class="step-card-brief">Evaluar el poder de solvencia del biodiesel como producto de limpieza sobre superficies con suciedad.</p>
+            </div>
+            <div class="step-section">
+              <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
+              <p class="step-card-purpose">Demostrar la funcionalidad del biodiesel como producto de limpieza, validando su aplicación práctica.</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -3187,92 +3777,199 @@
     slide.appendChild(watermark.cloneNode(true));
   });
 
-  function setupMediaUploads() {
-    document.querySelectorAll('.media-upload').forEach(function(container) {
-      var placeholder = container.querySelector('.upload-placeholder');
-      var input = container.querySelector('input[type="file"]');
-      var preview = container.querySelector('.media-preview');
-      placeholder.addEventListener('click', function() { input.click(); });
-      input.addEventListener('change', function() {
-        var file = this.files[0];
-        if (!file) return;
-        var url = URL.createObjectURL(file);
-        var isVideo = file.type.startsWith('video/');
-        placeholder.style.display = 'none';
-        preview.style.display = 'block';
-        preview.innerHTML =
-          '<div class="preview-wrapper">' +
-          (isVideo
-            ? '<video src="' + url + '" controls onclick="fullscreenPreview(event,this)"></video>'
-            : '<img src="' + url + '" alt="Preview" onclick="fullscreenPreview(event,this)">') +
-          '<div class="preview-controls">' +
-          '<button onclick="zoomOutPreview(this)" title="Alejar"><i class="fas fa-search-minus"></i></button>' +
-          '<button onclick="zoomResetPreview(this)" title="100%"><i class="fas fa-undo"></i></button>' +
-          '<button onclick="zoomInPreview(this)" title="Acercar"><i class="fas fa-search-plus"></i></button>' +
-          '<span class="spacer"></span>' +
-          '<button onclick="downloadMedia(this)" title="Descargar"><i class="fas fa-download"></i></button>' +
-          '<button onclick="fullscreenPreview(event,this)" title="Pantalla completa"><i class="fas fa-expand"></i></button>' +
-          '<button class="btn-remove" onclick="removeMedia(this)" title="Eliminar"><i class="fas fa-trash"></i></button>' +
-          '</div></div>';
-      });
+  function initActionMedia() {
+    document.querySelectorAll('.step-action-thumb').forEach(function(thumb) {
+      thumb._items = [];
+      thumb._current = 0;
+
+      var media = document.createElement('div');
+      media.className = 'sat-media';
+      while (thumb.firstChild) media.appendChild(thumb.firstChild);
+      thumb.appendChild(media);
+
+      var prev = document.createElement('button');
+      prev.className = 'sat-nav sat-prev';
+      prev.innerHTML = '<i class="fas fa-chevron-left"></i>';
+      prev.onclick = function(e) { e.stopPropagation(); navigateSat(thumb, -1); };
+      thumb.appendChild(prev);
+
+      var next = document.createElement('button');
+      next.className = 'sat-nav sat-next';
+      next.innerHTML = '<i class="fas fa-chevron-right"></i>';
+      next.onclick = function(e) { e.stopPropagation(); navigateSat(thumb, 1); };
+      thumb.appendChild(next);
+
+      var info = thumb.parentElement.querySelector('.step-action-info');
+      if (!info) {
+        info = document.createElement('div');
+        info.className = 'step-action-info';
+        var label = thumb.parentElement.querySelector('.step-action-label');
+        if (label) {
+          thumb.parentElement.insertBefore(info, label);
+          info.appendChild(label);
+        } else {
+          thumb.parentElement.appendChild(info);
+        }
+      }
+      var dots = document.createElement('div');
+      dots.className = 'sat-dots';
+      info.appendChild(dots);
+
+      var input = thumb.querySelector('.sa-input');
+      if (input) input.setAttribute('multiple', '');
+
+      thumb.querySelector('.sat-media').onclick = function(e) {
+        if (thumb._items.length === 0) {
+          var inp = thumb.querySelector('.sa-input');
+          if (inp) inp.click();
+          return;
+        }
+        e.stopPropagation();
+        openActionLightbox(thumb, thumb._current);
+      };
+
+      if (input) {
+        input.addEventListener('change', function() {
+          var files = this.files;
+          if (!files || !files.length) return;
+          for (var i = 0; i < files.length; i++) {
+            var f = files[i];
+            thumb._items.push({ url: URL.createObjectURL(f), isVideo: f.type.startsWith('video/') });
+          }
+          thumb._current = thumb._items.length - 1;
+          renderSat(thumb);
+          this.value = '';
+        });
+      }
+
+      renderSat(thumb);
     });
   }
-  function fullscreenPreview(event, el) {
-    var wrapper = el.closest('.preview-wrapper');
-    if (!document.fullscreenElement) {
-      if (wrapper.requestFullscreen) wrapper.requestFullscreen();
+
+  function renderSat(thumb) {
+    var media = thumb.querySelector('.sat-media');
+    var dotsContainer = thumb.parentElement.querySelector('.sat-dots');
+    var items = thumb._items;
+    var idx = thumb._current;
+    if (!media) return;
+
+    var existingInput = media.querySelector('.sa-input');
+
+    if (!items || items.length === 0) {
+      media.innerHTML = '<i class="fas fa-camera"></i>';
+      if (existingInput) media.appendChild(existingInput);
+      thumb.classList.remove('has-media');
+      thumb.querySelector('.sat-prev').classList.remove('multi');
+      thumb.querySelector('.sat-next').classList.remove('multi');
+      if (dotsContainer) dotsContainer.innerHTML = '';
+      return;
+    }
+
+    var item = items[idx];
+    thumb.classList.add('has-media');
+    if (item.isVideo) {
+      media.innerHTML = '<video src="' + item.url + '" muted playsinline preload="metadata"></video>';
     } else {
-      document.exitFullscreen();
+      media.innerHTML = '<img src="' + item.url + '" alt="">';
+    }
+    if (existingInput) media.appendChild(existingInput);
+
+    if (items.length > 1) {
+      thumb.querySelector('.sat-prev').classList.add('multi');
+      thumb.querySelector('.sat-next').classList.add('multi');
+    } else {
+      thumb.querySelector('.sat-prev').classList.remove('multi');
+      thumb.querySelector('.sat-next').classList.remove('multi');
+    }
+
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      for (var i = 0; i < items.length; i++) {
+        var dot = document.createElement('span');
+        dot.className = 'sat-dot' + (i === idx ? ' active' : '');
+        dot.onclick = function(j) {
+          return function(e) { e.stopPropagation(); thumb._current = j; renderSat(thumb); };
+        }(i);
+        dotsContainer.appendChild(dot);
+      }
     }
   }
-  function downloadMedia(btn) {
-    var wrapper = btn.closest('.preview-wrapper');
-    var media = wrapper.querySelector('img') || wrapper.querySelector('video');
-    if (!media) return;
-    var a = document.createElement('a');
-    a.href = media.src;
-    a.download = media.tagName === 'VIDEO' ? 'video.mp4' : 'imagen.png';
-    a.click();
+
+  function navigateSat(thumb, dir) {
+    if (!thumb._items || thumb._items.length < 2) return;
+    thumb._current = (thumb._current + dir + thumb._items.length) % thumb._items.length;
+    renderSat(thumb);
   }
-  var zoomLevels = [0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4];
-  function setZoom(media, level) {
-    media.style.transform = 'scale(' + level + ')';
-    media.style.transformOrigin = 'center center';
-    media.style.transition = 'transform 0.2s';
-    var wrapper = media.closest('.preview-wrapper');
-    wrapper.style.overflow = level > 1 ? 'auto' : 'hidden';
+
+  initActionMedia();
+
+  function openActionLightbox(thumb, idx) {
+    var items = thumb._items;
+    if (!items || !items.length) return;
+    var lb = document.getElementById('gallery-lightbox');
+    var content = lb.querySelector('.lightbox-content');
+    lb._thumbItems = items;
+    lb._currentIdx = idx;
+    renderLightbox(lb);
+    lb.classList.add('show');
   }
-  function getZoom(media) {
-    return parseFloat(media.style.transform.replace('scale(','').replace(')','')) || 1;
+
+  function renderLightbox(lb) {
+    var content = lb.querySelector('.lightbox-content');
+    var items = lb._thumbItems;
+    var idx = lb._currentIdx;
+    if (!items || !items.length) { lb.classList.remove('show'); return; }
+    var item = items[idx];
+    content.innerHTML = item.isVideo
+      ? '<video src="' + item.url + '" controls autoplay playsinline></video>'
+      : '<img src="' + item.url + '" alt="">';
+
+    var prev = lb.querySelector('.lb-prev');
+    var next = lb.querySelector('.lb-next');
+    var counter = lb.querySelector('.lb-counter');
+    prev.style.display = 'flex';
+    next.style.display = 'flex';
+    counter.textContent = (idx + 1) + '/' + items.length;
+    counter.style.display = 'block';
   }
-  function zoomInPreview(btn) {
-    var media = btn.closest('.preview-wrapper').querySelector('img, video');
-    if (!media) return;
-    var cur = getZoom(media);
-    var next = zoomLevels.find(function(z) { return z > cur + 0.01; }) || zoomLevels[zoomLevels.length-1];
-    setZoom(media, next);
+
+  function navigateLightbox(dir) {
+    var lb = document.getElementById('gallery-lightbox');
+    lb._currentIdx = (lb._currentIdx + dir + lb._thumbItems.length) % lb._thumbItems.length;
+    renderLightbox(lb);
   }
-  function zoomOutPreview(btn) {
-    var media = btn.closest('.preview-wrapper').querySelector('img, video');
-    if (!media) return;
-    var cur = getZoom(media);
-    var prev = zoomLevels.slice().reverse().find(function(z) { return z < cur - 0.01; }) || zoomLevels[0];
-    setZoom(media, prev);
+
+  function closeLightbox(e) {
+    if (e && e.target !== e.currentTarget) return;
+    var lb = document.getElementById('gallery-lightbox');
+    lb.classList.remove('show');
+    lb.querySelector('.lightbox-content').innerHTML = '';
+    lb.querySelector('.lb-prev').style.display = 'none';
+    lb.querySelector('.lb-next').style.display = 'none';
+    lb.querySelector('.lb-counter').style.display = 'none';
+    lb._thumbItems = null;
+    lb._currentIdx = 0;
   }
-  function zoomResetPreview(btn) {
-    var media = btn.closest('.preview-wrapper').querySelector('img, video');
-    if (!media) return;
-    setZoom(media, 1);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+    var lb = document.getElementById('gallery-lightbox');
+    if (lb && lb.classList.contains('show')) {
+      if (e.key === 'ArrowLeft') navigateLightbox(-1);
+      if (e.key === 'ArrowRight') navigateLightbox(1);
+    }
+  });
+
+  function updateStepProgress(containerId, current) {
+    var container = document.getElementById(containerId);
+    if (!container) return;
+    container.querySelectorAll('.step-progress-dot').forEach(function(dot, i) {
+      dot.classList.toggle('done', i + 1 < current);
+      dot.classList.toggle('active', i + 1 === current);
+    });
+    container.querySelectorAll('.step-progress-line').forEach(function(line, i) {
+      line.classList.toggle('done', i + 1 < current);
+    });
   }
-  function removeMedia(btn) {
-    var container = btn.closest('.media-upload');
-    var input = container.querySelector('input[type="file"]');
-    container.querySelector('.upload-placeholder').style.display = '';
-    container.querySelector('.media-preview').style.display = 'none';
-    container.querySelector('.media-preview').innerHTML = '';
-    input.value = '';
-  }
-  setupMediaUploads();
 
   var currentStep = 1;
   var totalSteps = 4;
@@ -3290,6 +3987,7 @@
       content.classList.toggle('active', i + 1 === currentStep);
     });
     document.querySelector('#modal-fase1 #stepIndicator').textContent = 'Paso ' + currentStep + ' de ' + totalSteps;
+    updateStepProgress('prog-fase1', currentStep);
   }
 
   function prevStep() {
@@ -3316,6 +4014,7 @@
       content.classList.toggle('active', i + 1 === currentStepF2);
     });
     document.querySelector('#modal-fase2 #stepIndicatorF2').textContent = 'Paso ' + currentStepF2 + ' de ' + totalStepsF2;
+    updateStepProgress('prog-fase2', currentStepF2);
   }
 
   function prevStepF2() {
@@ -3342,6 +4041,7 @@
       content.classList.toggle('active', i + 1 === currentStepF3);
     });
     document.querySelector('#modal-fase3 #stepIndicatorF3').textContent = 'Paso ' + currentStepF3 + ' de ' + totalStepsF3;
+    updateStepProgress('prog-fase3', currentStepF3);
   }
 
   function prevStepF3() {
@@ -3477,5 +4177,14 @@
     });
   });
 </script>
+
+<div id="gallery-lightbox" class="lightbox-overlay" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+  <div class="lightbox-content" onclick="event.stopPropagation()"></div>
+  <button class="lb-nav lb-prev" onclick="event.stopPropagation();navigateLightbox(-1)"><i class="fas fa-chevron-left"></i></button>
+  <button class="lb-nav lb-next" onclick="event.stopPropagation();navigateLightbox(1)"><i class="fas fa-chevron-right"></i></button>
+  <div class="lb-counter"></div>
+</div>
+
 </body>
 </html>
