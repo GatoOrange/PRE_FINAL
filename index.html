@@ -3770,6 +3770,19 @@
     slide.appendChild(watermark.cloneNode(true));
   });
 
+  function getThumbKey(thumb) {
+    var modal = thumb.closest('.modal-overlay');
+    var modalId = modal ? modal.id : 'unknown';
+    var stepContent = thumb.closest('.step-content');
+    var step = stepContent ? stepContent.getAttribute('data-step') : '0';
+    var actionList = thumb.closest('.step-action-list');
+    var thumbs = actionList ? actionList.querySelectorAll('.step-action-thumb') : [];
+    for (var i = 0; i < thumbs.length; i++) {
+      if (thumbs[i] === thumb) return modalId + '-step' + step + '-' + i;
+    }
+    return modalId + '-step' + step + '-0';
+  }
+
   function initActionMedia() {
     document.querySelectorAll('.step-action-thumb').forEach(function(thumb) {
       thumb._items = [];
@@ -3808,11 +3821,29 @@
       dots.className = 'sat-dots';
       info.appendChild(dots);
 
+      thumb._key = getThumbKey(thumb);
+
       var input = thumb.querySelector('.sa-input');
       if (input) input.setAttribute('multiple', '');
 
       thumb.querySelector('.sat-media').onclick = function(e) {
         if (thumb._items.length === 0) {
+          var key = thumb._key;
+          var stored = localStorage.getItem('media-path-' + key) || '';
+          var filename = prompt(
+            'Nombre del archivo en la carpeta media/\n(Ej: fase1-paso1.jpg)\nO deja vacío para subir archivo:',
+            stored
+          );
+          if (filename !== null) {
+            filename = filename.trim();
+            if (filename) {
+              localStorage.setItem('media-path-' + key, filename);
+              renderSat(thumb);
+              return;
+            } else {
+              localStorage.removeItem('media-path-' + key);
+            }
+          }
           var inp = thumb.querySelector('.sa-input');
           if (inp) inp.click();
           return;
@@ -3836,6 +3867,7 @@
             }
             thumb._items.push({ url: URL.createObjectURL(f), isVideo: isVid, mime: mime });
           }
+          if (thumb._key) localStorage.removeItem('media-path-' + thumb._key);
           thumb._current = thumb._items.length - 1;
           renderSat(thumb);
           this.value = '';
@@ -3854,6 +3886,25 @@
     if (!media) return;
 
     var existingInput = media.querySelector('.sa-input');
+
+    // Check for media-path from localStorage (permanent files in media/ folder)
+    var key = thumb._key;
+    var mediaPath = key ? localStorage.getItem('media-path-' + key) : null;
+    if (mediaPath) {
+      media.innerHTML = '';
+      var isVid = /\.(mp4|mov|webm|ogg|avi)$/i.test(mediaPath);
+      if (isVid) {
+        media.innerHTML = '<video src="media/' + encodeURI(mediaPath) + '" muted playsinline preload="metadata"></video>';
+      } else {
+        media.innerHTML = '<img src="media/' + encodeURI(mediaPath) + '" alt="">';
+      }
+      if (existingInput) media.appendChild(existingInput);
+      thumb.classList.add('has-media');
+      thumb.querySelector('.sat-prev').classList.remove('multi');
+      thumb.querySelector('.sat-next').classList.remove('multi');
+      if (dotsContainer) dotsContainer.innerHTML = '<div style="font-size:10px;color:#888;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:120px;" title="' + mediaPath + '">📁 ' + mediaPath + '</div>';
+      return;
+    }
 
     if (!items || items.length === 0) {
       media.innerHTML = '<i class="fas fa-camera"></i>';
@@ -3941,6 +3992,21 @@
   }
 
   function openActionLightbox(thumb, idx) {
+    var key = thumb._key;
+    var mediaPath = key ? localStorage.getItem('media-path-' + key) : null;
+    if (mediaPath) {
+      var lb = document.getElementById('gallery-lightbox');
+      var isVid = /\.(mp4|mov|webm|ogg|avi)$/i.test(mediaPath);
+      lb.querySelector('.lightbox-content').innerHTML = isVid
+        ? '<video src="media/' + encodeURI(mediaPath) + '" controls autoplay playsinline></video>'
+        : '<img src="media/' + encodeURI(mediaPath) + '" alt="">';
+      lb.querySelector('.lb-prev').style.display = 'none';
+      lb.querySelector('.lb-next').style.display = 'none';
+      lb.querySelector('.lb-counter').textContent = '📁 media/';
+      lb.querySelector('.lb-counter').style.display = 'block';
+      lb.classList.add('show');
+      return;
+    }
     var items = thumb._items;
     if (!items || !items.length) return;
     _lb.thumb = thumb;
@@ -4024,7 +4090,7 @@
 
   function goToStep(n) {
     currentStep = Math.max(1, Math.min(n, totalSteps));
-    var titles = ['Recolección y filtrado del aceite','Caracterización del aceite','Estandarización de reactivos','Producción del catalizador'];
+    var titles = ['Recolección y filtrado del aceite','Caracterización del aceite','Titulación y deshidratación','Producción del catalizador'];
     document.getElementById('modalFase1Title').textContent = titles[currentStep - 1];
     document.querySelectorAll('#modal-fase1 .step-content').forEach(function(content, i) {
       content.classList.toggle('active', i + 1 === currentStep);
@@ -4051,7 +4117,7 @@
 
   function goToStepF2(n) {
     currentStepF2 = Math.max(1, Math.min(n, totalStepsF2));
-    var titlesF2 = ['Esterificación Ácida','Transesterificación Alcalina','Centrifugación'];
+    var titlesF2 = ['Esterificación Ácida','Transesterificación Alcalina','Decantación'];
     document.getElementById('modalFase2Title').textContent = titlesF2[currentStepF2 - 1];
     document.querySelectorAll('#modal-fase2 .step-content').forEach(function(content, i) {
       content.classList.toggle('active', i + 1 === currentStepF2);
@@ -4078,7 +4144,7 @@
 
   function goToStepF3(n) {
     currentStepF3 = Math.max(1, Math.min(n, totalStepsF3));
-    var titlesF3 = ['Lavado por aspersión','Centrifugación de humedad','Secado final','Conversión de ésteres','Evaluación de humedad','Desempeño físico'];
+    var titlesF3 = ['Lavado por aspersión','Centrifugación de humedad','Secado final','Verificación de pH','Evaluación de humedad','Evaluación de Conductividad Eléctrica'];
     document.getElementById('modalFase3Title').textContent = titlesF3[currentStepF3 - 1];
     document.querySelectorAll('#modal-fase3 .step-content').forEach(function(content, i) {
       content.classList.toggle('active', i + 1 === currentStepF3);
