@@ -1625,6 +1625,27 @@
   .step-action-thumb:hover .sat-nav { display: flex; }
   .step-action-thumb .sat-nav.multi { display: flex; }
 
+  .sat-edit-overlay {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    background: rgba(0,0,0,0.55);
+    color: rgba(255,255,255,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease, background 0.2s ease, color 0.2s ease;
+    z-index: 5;
+    line-height: 1;
+  }
+  .step-action-thumb:hover .sat-edit-overlay { opacity: 1; }
+  .sat-edit-overlay:hover { background: rgba(57,181,74,0.7); color: #fff; }
   .sat-dots {
     display: flex;
     align-items: center;
@@ -3827,29 +3848,32 @@
       if (input) input.setAttribute('multiple', '');
 
       thumb.querySelector('.sat-media').onclick = function(e) {
-        if (thumb._items.length === 0) {
-          var key = thumb._key;
-          var stored = localStorage.getItem('media-path-' + key) || '';
-          var filename = prompt(
-            'Nombre del archivo en la carpeta media/\n(Ej: fase1-paso1.jpg)\nO deja vacío para subir archivo:',
-            stored
-          );
-          if (filename !== null) {
-            filename = filename.trim();
-            if (filename) {
-              localStorage.setItem('media-path-' + key, filename);
-              renderSat(thumb);
-              return;
-            } else {
-              localStorage.removeItem('media-path-' + key);
-            }
-          }
-          var inp = thumb.querySelector('.sa-input');
-          if (inp) inp.click();
+        var mediaKey = thumb._key;
+        var hasMediaPath = mediaKey ? localStorage.getItem('media-path-' + mediaKey) : null;
+
+        if (hasMediaPath || thumb._items.length > 0) {
+          e.stopPropagation();
+          openActionLightbox(thumb, thumb._current);
           return;
         }
-        e.stopPropagation();
-        openActionLightbox(thumb, thumb._current);
+
+        var stored = localStorage.getItem('media-path-' + mediaKey) || '';
+        var filename = prompt(
+          'Nombre del archivo en la carpeta media/\n(Ej: fase1-paso1.jpg)\nO deja vacío para subir archivo:',
+          stored
+        );
+        if (filename !== null) {
+          filename = filename.trim();
+          if (filename) {
+            localStorage.setItem('media-path-' + mediaKey, filename);
+            renderSat(thumb);
+            return;
+          } else {
+            localStorage.removeItem('media-path-' + mediaKey);
+          }
+        }
+        var inp = thumb.querySelector('.sa-input');
+        if (inp) inp.click();
       };
 
       if (input) {
@@ -3902,7 +3926,29 @@
       thumb.classList.add('has-media');
       thumb.querySelector('.sat-prev').classList.remove('multi');
       thumb.querySelector('.sat-next').classList.remove('multi');
-      if (dotsContainer) dotsContainer.innerHTML = '<div style="font-size:10px;color:#888;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:120px;" title="' + mediaPath + '">📁 ' + mediaPath + '</div>';
+      if (dotsContainer) dotsContainer.innerHTML = '';
+      // Add edit overlay button
+      var editBtn = document.createElement('div');
+      editBtn.className = 'sat-edit-overlay';
+      editBtn.innerHTML = '<i class="fas fa-pencil-alt"></i>';
+      editBtn.title = 'Cambiar imagen';
+      editBtn.onclick = function(e) {
+        e.stopPropagation();
+        var newName = prompt(
+          'Nombre del archivo en media/\n(Ej: nueva-imagen.jpg)\nDeja vacío para quitar la imagen:',
+          mediaPath
+        );
+        if (newName !== null) {
+          newName = newName.trim();
+          if (newName) {
+            localStorage.setItem('media-path-' + key, newName);
+          } else {
+            localStorage.removeItem('media-path-' + key);
+          }
+          renderSat(thumb);
+        }
+      };
+      media.appendChild(editBtn);
       return;
     }
 
