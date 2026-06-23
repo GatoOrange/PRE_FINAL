@@ -2319,10 +2319,9 @@
             </div>
           </div>
           <ul class="proc-steps">
-            <li>Reducir ácidos grasos libres</li>
-            <li>Usar metanol + H₂SO₄ como catalizador</li>
-            <li>Calentar 55–60 °C por 60–90 min</li>
-            <li>Verificar índice de acidez</li>
+            <li>Evaluar índice de acidez</li>
+            <li>Acidez &lt; 1% → no requirió esterificación</li>
+            <li>Proceder a transesterificación</li>
           </ul>
           <span class="proc-tag">Ver más</span>
         </div>
@@ -2363,7 +2362,7 @@
   </div>
 
   <!-- SLIDE 5: FASE 3 - PURIFICACIÓN Y CARACTERIZACIÓN -->
-  <div class="slide" data-index="4" style="padding: 20px 40px 40px;">
+  <div class="slide" data-index="4" style="padding: 16px 40px 32px; overflow-y: auto;">
     <div class="slide-logo"><img src="images/logo-sena-blanco.png" alt="SENA" onerror="this.style.display='none'"></div>
     <div class="slide-content" style="text-align:center;">
       <div class="slide-label" style="font-size:14px;">Fase 3 · Purificación y Caracterización</div>
@@ -2373,7 +2372,7 @@
 
       <div class="process-section">
         <div class="process-section-label">Purificación</div>
-        <div class="process-grid process-grid-3">
+        <div class="process-grid">
           <div class="process-block" onclick="openFase3Modal(1)">
             <div class="proc-top">
               <div class="proc-icon"><i class="fas fa-shower"></i></div>
@@ -2406,33 +2405,17 @@
             </ul>
             <span class="proc-tag">Ver más</span>
           </div>
-          <div class="process-block" onclick="openFase3Modal(3)">
-            <div class="proc-top">
-              <div class="proc-icon"><i class="fas fa-fire"></i></div>
-              <div class="proc-info">
-                <div class="proc-label">Paso 3 · Secado</div>
-                <div class="proc-title">Secado final</div>
-              </div>
-            </div>
-            <ul class="proc-steps">
-              <li>Eliminar humedad residual y trazas de metanol</li>
-              <li>Transferir a sistema de vacío o calor</li>
-              <li>Mantener condiciones de operación</li>
-              <li>Obtener producto transparente y estable</li>
-            </ul>
-            <span class="proc-tag">Ver más</span>
-          </div>
         </div>
       </div>
 
       <div class="process-section">
         <div class="process-section-label">Caracterización</div>
         <div class="process-grid process-grid-3">
-          <div class="process-block" onclick="openFase3Modal(4)">
+          <div class="process-block" onclick="openFase3Modal(3)">
             <div class="proc-top">
               <div class="proc-icon"><i class="fas fa-flask"></i></div>
               <div class="proc-info">
-              <div class="proc-label">Paso 4 · Calidad</div>
+              <div class="proc-label">Paso 3 · Calidad</div>
               <div class="proc-title">Verificación de pH</div>
               </div>
             </div>
@@ -2443,11 +2426,11 @@
             </ul>
             <span class="proc-tag">Ver más</span>
           </div>
-          <div class="process-block" onclick="openFase3Modal(5)">
+          <div class="process-block" onclick="openFase3Modal(4)">
             <div class="proc-top">
               <div class="proc-icon"><i class="fas fa-tint"></i></div>
               <div class="proc-info">
-                <div class="proc-label">Paso 5 · Calidad</div>
+                <div class="proc-label">Paso 4 · Calidad</div>
                 <div class="proc-title">Evaluación de humedad</div>
               </div>
             </div>
@@ -2458,11 +2441,11 @@
             </ul>
             <span class="proc-tag">Ver más</span>
           </div>
-          <div class="process-block" onclick="openFase3Modal(6)">
+          <div class="process-block" onclick="openFase3Modal(5)">
             <div class="proc-top">
               <div class="proc-icon"><i class="fas fa-hand-paper"></i></div>
               <div class="proc-info">
-                <div class="proc-label">Paso 6 · Físico</div>
+                <div class="proc-label">Paso 5 · Físico</div>
                 <div class="proc-title">Evaluación de Conductividad Eléctrica</div>
               </div>
             </div>
@@ -2478,169 +2461,65 @@
     </div>
   </div>
 
-  <!-- SLIDE 6: ESCALAMIENTO INDUSTRIAL — P&ID + BALANCE + SCADA -->
-  <div class="slide" data-index="5">
+  <!-- SLIDE 6: ESCALAMIENTO INDUSTRIAL — PROCESOS, BALANCE Y SCADA -->
+  <div class="slide" data-index="5" style="overflow-y: auto;">
     <div class="slide-logo"><img src="images/logo-sena-blanco.png" alt="SENA" onerror="this.style.display='none'"></div>
     <div class="slide-content" style="text-align:center;">
       <div class="slide-label">Escalamiento Industrial</div>
-      <div class="slide-accent-line" style="margin:0 auto 20px;"></div>
-      <h2 class="slide-title" style="font-size:26px;margin-bottom:2px;color:#e0e0e0;">Diagrama P&amp;ID — Operaciones y Procesos Unitarios</h2>
-      <p class="slide-subtitle" style="margin:0 auto 18px;color:#999;">De las fases de laboratorio al proceso industrial · Cada bloque abre su ficha técnica</p>
-      <div class="industrial-flow">
-        <div class="flow-row">
-          <div class="flow-block" onclick="openIndModal(1)">
-            <div class="flow-icon"><i class="fas fa-flask"></i></div>
-            <div class="flow-phase">Fase 1</div>
-            <div class="flow-title">Caracterización de Materia Prima</div>
-            <div class="flow-vars">
-              <span>Índice de acidez</span>
-              <span>Densidad</span>
-              <span>Humedad</span>
+      <div class="slide-accent-line" style="margin:0 auto 14px;"></div>
+      <h2 class="slide-title" style="font-size:24px;margin-bottom:6px;color:#e0e0e0;">Escalamiento Industrial</h2>
+      <p class="slide-subtitle" style="font-size:13px;color:#999;margin-bottom:20px;">Todo el proceso se ve reflejado en el sistema SCADA externo</p>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:660px;margin:0 auto;">
+        <!-- Cajoncito 1: Procesos unitarios -->
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:20px 16px;cursor:pointer;transition:all 0.3s;text-align:center;" onclick="toggleText(this)" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+          <div style="font-size:28px;margin-bottom:8px;color:#39b54a;"><i class="fas fa-flask"></i></div>
+          <div style="font-size:14px;font-weight:700;color:#e0e0e0;">Procesos unitarios</div>
+          <div style="font-size:10px;color:#666;margin-top:4px;">Haz clic para ver más</div>
+          <div class="expand-text" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease, margin 0.3s ease;font-size:12px;color:#aaa;line-height:1.6;text-align:left;margin-top:0;">
+            <div style="padding-top:12px;border-top:1px solid rgba(255,255,255,0.06);margin-top:12px;">
+              Se abordarán los procesos químicos involucrados en la obtención de ésteres monoalquílicos y las operaciones unitarias que componen cada etapa del proceso productivo, desde el acondicionamiento de la materia prima hasta la purificación y caracterización del producto final.
             </div>
-            <span class="flow-tag">Ver ficha ›</span>
-          </div>
-          <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-          <div class="flow-block highlight" onclick="openIndModal(2)">
-            <div class="flow-icon"><i class="fas fa-vial"></i></div>
-            <div class="flow-phase">Fase 2</div>
-            <div class="flow-title">Transformación</div>
-            <div class="flow-sub">Esterificación + Transesterificación</div>
-            <div class="flow-vars">
-              <span>T°: 58–61 °C</span>
-              <span>Relación 1:6</span>
-              <span>KOH 1% p/p</span>
-            </div>
-            <span class="flow-tag">Ver ficha ›</span>
-          </div>
-          <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-          <div class="flow-block" onclick="openIndModal(3)">
-            <div class="flow-icon"><i class="fas fa-microscope"></i></div>
-            <div class="flow-phase">Fase 3</div>
-            <div class="flow-title">Caracterización del Producto Final</div>
-            <div class="flow-vars">
-              <span>Conversión ésteres</span>
-              <span>Humedad residual</span>
-              <span>Viscosidad</span>
-            </div>
-            <span class="flow-tag">Ver ficha ›</span>
           </div>
         </div>
-        <div class="flow-bottom">
-          <div class="flow-action" onclick="openIndModal(4)">
-            <div class="action-icon"><i class="fas fa-calculator"></i></div>
-            <div class="action-title">Balance de Materia y Energía</div>
-            <div class="action-desc">Entradas, salidas y consumo energético por operación unitaria</div>
-            <span class="flow-tag" style="opacity:1;transform:none;position:static;">Ver detalle ›</span>
+
+        <!-- Cajoncito 2: Balance de energía -->
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:20px 16px;cursor:pointer;transition:all 0.3s;text-align:center;" onclick="toggleText(this)" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+          <div style="font-size:28px;margin-bottom:8px;color:#39b54a;"><i class="fas fa-bolt"></i></div>
+          <div style="font-size:14px;font-weight:700;color:#e0e0e0;">Balance de energía</div>
+          <div style="font-size:10px;color:#666;margin-top:4px;">Haz clic para ver más</div>
+          <div class="expand-text" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease, margin 0.3s ease;font-size:12px;color:#aaa;line-height:1.6;text-align:left;margin-top:0;">
+            <div style="padding-top:12px;border-top:1px solid rgba(255,255,255,0.06);margin-top:12px;">
+              Se explicará el balance de energía del proceso, detallando los consumos energéticos en cada operación unitaria: calentamiento, reacción, destilación, bombeo y pérdidas térmicas, para evaluar la eficiencia energética del escalamiento industrial.
+            </div>
           </div>
-          <div class="flow-action scada" onclick="openModal('modal-hmi')">
-            <div class="action-icon"><i class="fas fa-desktop"></i></div>
-            <div class="action-title">Abrir Sistema SCADA</div>
-            <div class="action-desc">Diagrama P&amp;ID completo · Identificador de variables · Lazos de control</div>
-            <span class="scada-badge">Ingresar →</span>
+        </div>
+
+        <!-- Cajoncito 3: SCADA/HMI -->
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:20px 16px;cursor:pointer;transition:all 0.3s;text-align:center;" onclick="toggleText(this)" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+          <div style="font-size:28px;margin-bottom:8px;color:#39b54a;"><i class="fas fa-desktop"></i></div>
+          <div style="font-size:14px;font-weight:700;color:#e0e0e0;">SCADA / HMI</div>
+          <div style="font-size:10px;color:#666;margin-top:4px;">Haz clic para ver más</div>
+          <div class="expand-text" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease, margin 0.3s ease;font-size:12px;color:#aaa;line-height:1.6;text-align:left;margin-top:0;">
+            <div style="padding-top:12px;border-top:1px solid rgba(255,255,255,0.06);margin-top:12px;">
+              Se integró un sistema HMI (Interfaz Hombre-Máquina) que refleja en tiempo real el estado de cada operación unitaria. Se tendrá en cuenta todo lo aprendido durante el proceso productivo para la supervisión, control y monitoreo de las variables del proceso industrial.
+            </div>
+            <div style="text-align:center;margin-top:12px;">
+              <a href="https://sebastianl1.github.io/Web_prueba/#" target="_blank" 
+                 style="display:inline-block;background:#39b54a;color:#fff;padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:background 0.3s;"
+                 onmouseover="this.style.background='#2d9a3e'" onmouseout="this.style.background='#39b54a'"
+                 onclick="event.stopPropagation()">
+                <i class="fas fa-external-link-alt"></i> Abrir SCADA
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- SLIDE 7: BALANCE DE MATERIA Y ENERGÍA -->
+  <!-- SLIDE 7: APLICACIÓN -->
   <div class="slide" data-index="6">
-    <div class="slide-logo"><img src="images/logo-sena-blanco.png" alt="SENA" onerror="this.style.display='none'"></div>
-    <div class="slide-content" style="text-align:center;">
-      <div class="slide-label">Balance de Materia y Energía</div>
-      <div class="slide-accent-line" style="margin:0 auto 18px;"></div>
-      <h2 class="slide-title" style="font-size:26px;margin-bottom:2px;color:#e0e0e0;">Análisis de Masa y Energía del Proceso</h2>
-      <p class="slide-subtitle" style="margin:0 auto 18px;color:#999;">Rendimiento, eficiencia y escalamiento del proceso de transesterificación</p>
-      <div class="balance-grid">
-        <div class="balance-card">
-          <h3><i class="fas fa-weight"></i> Balance de Materia</h3>
-          <table class="balance-table">
-            <tr><th>Corriente</th><th>Entrada (kg)</th><th>Salida (kg)</th></tr>
-            <tr><td>Aceite residual</td><td>100.0</td><td>—</td></tr>
-            <tr><td>Metanol (relación 1:6)</td><td>21.5</td><td>—</td></tr>
-            <tr><td>KOH (catalizador)</td><td>1.2</td><td>—</td></tr>
-            <tr><td>Biodiesel (ésteres)</td><td>—</td><td>92.0</td></tr>
-            <tr><td>Glicerina cruda</td><td>—</td><td>18.5</td></tr>
-            <tr><td>Metanol recuperado</td><td>—</td><td>10.8</td></tr>
-            <tr><td>Pérdidas / residuos</td><td>—</td><td>1.4</td></tr>
-            <tr class="total"><td><strong>Total</strong></td><td><strong>122.7</strong></td><td><strong>122.7</strong></td></tr>
-          </table>
-        </div>
-        <div class="balance-card">
-          <h3><i class="fas fa-bolt"></i> Balance de Energía</h3>
-          <table class="balance-table">
-            <tr><th>Etapa</th><th>Consumo (MJ)</th><th>% del total</th></tr>
-            <tr><td>Calentamiento del aceite (25→60°C)</td><td>14.6</td><td>22.3%</td></tr>
-            <tr><td>Reacción endotérmica</td><td>8.2</td><td>12.5%</td></tr>
-            <tr><td>Destilación metanol</td><td>26.4</td><td>40.2%</td></tr>
-            <tr><td>Bombeo y agitación</td><td>4.1</td><td>6.3%</td></tr>
-            <tr><td>Pérdidas térmicas</td><td>12.3</td><td>18.7%</td></tr>
-            <tr class="total"><td><strong>Total</strong></td><td><strong>65.6</strong></td><td><strong>100%</strong></td></tr>
-          </table>
-        </div>
-        <div class="balance-card full" style="display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;">
-          <div class="balance-metric">
-            <div class="bm-value">92%</div>
-            <div class="bm-label">Rendimiento másico</div>
-          </div>
-          <div class="balance-metric">
-            <div class="bm-value">1:6</div>
-            <div class="bm-label">Relación molar óptima</div>
-          </div>
-          <div class="balance-metric">
-            <div class="bm-value">60°C</div>
-            <div class="bm-label">Temperatura de reacción</div>
-          </div>
-          <div class="balance-metric">
-            <div class="bm-value">65.6 MJ</div>
-            <div class="bm-label">Energía total por batch</div>
-          </div>
-          <div class="balance-metric">
-            <div class="bm-value">3.5×</div>
-            <div class="bm-label">Factor de escalamiento</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SLIDE 8: HMI -->
-  <div class="slide" data-index="7">
-    <div class="slide-logo"><img src="images/logo-sena-blanco.png" alt="SENA" onerror="this.style.display='none'"></div>
-    <div class="slide-content">
-      <div class="slide-label">Control de Proceso</div>
-      <div class="slide-accent-line"></div>
-      <h2 class="slide-title">Variables Monitoreadas por SCADA</h2>
-      <p class="slide-subtitle">Supervisión en tiempo real de la planta de producción</p>
-      <ul class="slide-list" style="grid-template-columns:1fr 1fr 1fr;">
-        <li><span class="li-icon"><i class="fas fa-thermometer-half"></i></span> Temperatura del reactor</li>
-        <li><span class="li-icon"><i class="fas fa-gauge-high"></i></span> Presión del sistema</li>
-        <li><span class="li-icon"><i class="fas fa-water"></i></span> Caudal de alimentación</li>
-        <li><span class="li-icon"><i class="fas fa-chart-line"></i></span> Nivel de tanques</li>
-        <li><span class="li-icon"><i class="fas fa-flask"></i></span> pH y conductividad</li>
-        <li><span class="li-icon"><i class="fas fa-tachometer"></i></span> Velocidad de agitación (RPM)</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- SLIDE 9: BALANCE -->
-  <div class="slide" data-index="8">
-    <div class="slide-logo"><img src="images/logo-sena-blanco.png" alt="SENA" onerror="this.style.display='none'"></div>
-    <div class="slide-content" style="text-align:center;">
-      <div class="slide-label">Balance de Materia y Energía</div>
-      <div class="slide-accent-line" style="margin:0 auto 20px;"></div>
-      <h2 class="slide-title">Rendimiento del Proceso</h2>
-      <p class="slide-subtitle" style="margin:0 auto 32px;">Análisis de eficiencia para escalamiento industrial</p>
-      <div class="metrics-row">
-        <div class="metric-box"><div class="metric-value">92%</div><div class="metric-label">Rendimiento másico</div></div>
-        <div class="metric-box accent"><div class="metric-value">1:6</div><div class="metric-label">Relación molar óptima</div></div>
-        <div class="metric-box"><div class="metric-value">45°C</div><div class="metric-label">Temperatura óptima</div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SLIDE 10: APLICACIÓN -->
-  <div class="slide" data-index="9">
     <div class="slide-logo"><img src="images/logo-sena-blanco.png" alt="SENA" onerror="this.style.display='none'"></div>
     <div class="slide-content">
       <div class="slide-label">Software</div>
@@ -2664,8 +2543,8 @@
     </div>
   </div>
 
-  <!-- SLIDE 11: CONCLUSIONES -->
-  <div class="slide" data-index="10">
+  <!-- SLIDE 8: CONCLUSIONES -->
+  <div class="slide" data-index="7">
     <div class="slide-logo"><img src="images/logo-sena-blanco.png" alt="SENA" onerror="this.style.display='none'"></div>
     <div class="slide-content">
       <div class="slide-label">Conclusiones</div>
@@ -2683,13 +2562,13 @@
     </div>
   </div>
 
-  <!-- SLIDE 12: CIERRE -->
-  <div class="slide" data-index="11" style="background:#121212;text-align:center;">
+  <!-- SLIDE 9: CIERRE -->
+  <div class="slide" data-index="8" style="background:#121212;text-align:center;">
     <div class="slide-logo"><img src="images/logo-sena-blanco.png" alt="SENA" onerror="this.style.display='none'"></div>
     <div class="slide-content">
       <div class="slide-label" style="color:var(--accent);text-align:center;">¿Sabías que...?</div>
-      <h2 class="slide-title" style="color:#fff;font-size:28px;max-width:800px;margin:0 auto 16px;">Producir un <span style="color:var(--accent);">biosolvente dieléctrico</span> es más factible que un biodiesel</h2>
-      <p class="slide-subtitle" style="color:rgba(255,255,255,0.75);margin:0 auto 24px;">El biodiesel exige estrictas normas de calidad (ASTM D6751, EN 14214) para su uso como combustible, mientras que un biosolvente dieléctrico tolera especificaciones más flexibles, reduce costos de purificación y genera un producto de mayor valor agregado como insumo para la industria eléctrica y de limpieza.</p>
+      <h2 class="slide-title" style="color:#fff;font-size:24px;max-width:800px;margin:0 auto 16px;">Los ésteres monoalquílicos tienen aplicaciones más allá del biodiesel</h2>
+      <p class="slide-subtitle" style="color:rgba(255,255,255,0.75);margin:0 auto 24px;font-size:15px;line-height:1.6;">Son la base de solventes ecológicos, plastificantes, lubricantes biodegradables e incluso ingredientes en cosméticos y productos farmacéuticos. Un mismo éster puede tener aplicaciones completamente diferentes según su grado de pureza y la longitud de su cadena.</p>
       <div style="display:inline-flex;align-items:center;gap:10px;padding:10px 24px;background:rgba(255,255,255,0.1);border-radius:50px;color:rgba(255,255,255,0.7);font-size:13px;">
         <i class="fas fa-quote-left" style="color:var(--accent);"></i> Proyecto de investigación aplicada · SENA
       </div>
@@ -2704,7 +2583,7 @@
 
 <!-- ===== BOTTOM NAV ===== -->
 <div class="bottom-nav">
-  <div class="slide-counter"><span class="current" id="slideCurrent">1</span> / <span id="slideTotal">12</span></div>
+  <div class="slide-counter"><span class="current" id="slideCurrent">1</span> / <span id="slideTotal">9</span></div>
   <div class="nav-dots" id="navDots"></div>
   <div class="nav-arrows">
     <button id="prevBtn" onclick="prevSlide()" title="Anterior (←)"><i class="fas fa-chevron-left"></i></button>
@@ -2867,10 +2746,9 @@
     </div>
     <div class="modal-body" style="padding:16px 24px 24px;">
       <div style="display:flex;gap:4px;margin-bottom:16px;background:#f5f7f5;padding:4px;border-radius:10px;overflow-x:auto;flex-wrap:nowrap;">
-        <button class="modal-tab active" onclick="switchModalTab(this,'ind-f1')" style="white-space:nowrap;font-size:12px;flex-shrink:0;">Fase 1 · Caracterización MP</button>
+        <button class="modal-tab active" onclick="switchModalTab(this,'ind-f1')" style="white-space:nowrap;font-size:12px;flex-shrink:0;">Fase 1 · Acondicionamiento MP</button>
         <button class="modal-tab" onclick="switchModalTab(this,'ind-f2')" style="white-space:nowrap;font-size:12px;flex-shrink:0;">Fase 2 · Transformación</button>
-        <button class="modal-tab" onclick="switchModalTab(this,'ind-f3')" style="white-space:nowrap;font-size:12px;flex-shrink:0;">Fase 3 · Caracterización Producto</button>
-        <button class="modal-tab" onclick="switchModalTab(this,'ind-balance')" style="white-space:nowrap;font-size:12px;flex-shrink:0;">Balance M&amp;E</button>
+        <button class="modal-tab" onclick="switchModalTab(this,'ind-f3')" style="white-space:nowrap;font-size:12px;flex-shrink:0;">Fase 3 · Purificación y Caracterización</button>
       </div>
 
       <!-- FASE 1 -->
@@ -2947,42 +2825,6 @@
       </div>
 
       <!-- BALANCE M&E -->
-      <div id="ind-balance" class="modal-tab-content">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-          <div style="width:34px;height:34px;border-radius:8px;background:var(--primary-bg);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:16px;"><i class="fas fa-calculator"></i></div>
-          <strong style="font-size:16px;">Balance de Materia y Energía</strong>
-        </div>
-        <p style="font-size:14px;line-height:1.7;color:#444;margin-bottom:14px;">Distribución de masa y energía por operación unitaria para un batch de 100 kg de aceite residual.</p>
-        <div style="background:#f9faf9;border:2px dashed #ddd;border-radius:12px;padding:20px;text-align:center;margin-bottom:14px;color:#aaa;font-size:13px;cursor:pointer;transition:border-color 0.3s;">
-          <i class="fas fa-image" style="font-size:28px;display:block;margin-bottom:8px;opacity:0.4;"></i>
-          Inserta aquí el esquema de flujo del balance
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-          <div style="background:#f0f7f0;border-radius:10px;padding:14px 16px;">
-            <strong style="font-size:13px;color:#2e7d32;">Balance de Materia</strong>
-            <div style="font-size:12px;color:#555;margin-top:6px;line-height:1.7;">
-              Entrada: 122.7 kg/batch<br>
-              · Aceite: 100 kg<br>
-              · Metanol: 21.5 kg<br>
-              · KOH: 1.2 kg<br>
-              Salida: 122.7 kg/batch<br>
-              · Biodiesel: 92 kg · Glicerina: 18.5 kg<br>
-              · Metanol rec.: 10.8 kg · Pérdidas: 1.4 kg
-            </div>
-          </div>
-          <div style="background:#f0f7f0;border-radius:10px;padding:14px 16px;">
-            <strong style="font-size:13px;color:#2e7d32;">Balance de Energía</strong>
-            <div style="font-size:12px;color:#555;margin-top:6px;line-height:1.7;">
-              Total: 65.6 MJ/batch<br>
-              · Calentamiento aceite: 14.6 MJ (22.3%)<br>
-              · Reacción: 8.2 MJ (12.5%)<br>
-              · Destilación metanol: 26.4 MJ (40.2%)<br>
-              · Bombeo/agitación: 4.1 MJ (6.3%)<br>
-              · Pérdidas térmicas: 12.3 MJ (18.7%)
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </div>
@@ -3440,19 +3282,23 @@
             <div class="step-section">
               <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
               <div class="step-action-list">
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Aplicar si acidez &gt; 2%</span></div>
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Añadir metanol + H₂SO₄</span></div>
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Calentar 55–60 °C · 60–90 min</span></div>
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Enfriar, decantar y verificar acidez</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Ácido sulfúrico (H₂SO₄)</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Metanol (CH₃OH)</span></div>
               </div>
+              <ul style="margin-top:12px;padding-left:20px;font-size:13px;color:#555;line-height:1.8;">
+                <li>Medir índice de acidez del aceite</li>
+                <li>Si acidez &gt; 2%, agregar metanol + H₂SO₄</li>
+                <li>Calentar 55–60 °C con agitación</li>
+                <li>Enfriar, decantar y verificar acidez final (&lt; 1%)</li>
+              </ul>
             </div>
             <div class="step-section">
               <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
-              <p class="step-card-brief">Reducir los ácidos grasos libres del aceite para evitar la formación de jabones durante la transesterificación alcalina.</p>
+              <p class="step-card-brief">La esterificación ácida se realiza cuando el índice de acidez del aceite supera el 2%. En este caso no fue necesaria porque la acidez inicial fue menor al 1%, pero se describen los pasos por su importancia en el proceso general.</p>
             </div>
             <div class="step-section">
               <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
-              <p class="step-card-purpose">Reducir la acidez del aceite por debajo del 2% para evitar la formación de jabones que inhiben la transesterificación alcalina.</p>
+              <p class="step-card-purpose">Reducir los ácidos grasos libres (AGL) a ésteres metílicos, evitando la saponificación en la transesterificación alcalina.</p>
             </div>
           </div>
         </div>
@@ -3552,8 +3398,6 @@
         <div class="step-progress-dot"><span>4</span></div>
         <div class="step-progress-line"></div>
         <div class="step-progress-dot"><span>5</span></div>
-        <div class="step-progress-line"></div>
-        <div class="step-progress-dot"><span>6</span></div>
       </div>
 
       <!-- Step 1: Lavado por aspersión -->
@@ -3570,11 +3414,14 @@
             <div class="step-section">
               <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
               <div class="step-action-list">
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Transferir producto a beaker</span></div>
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Aplicar agua destilada ≤10% vol.</span></div>
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Mezclar suavemente y separar</span></div>
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Registrar volumen y número de lavados</span></div>
+                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Lavado por aspersión</span></div>
               </div>
+              <ul style="margin-top:12px;padding-left:20px;font-size:13px;color:#555;line-height:1.8;">
+                <li>Transferir producto a un beaker</li>
+                <li>Aplicar agua destilada (≤10% del volumen)</li>
+                <li>Mezclar suavemente y separar fases</li>
+                <li>Registrar volumen usado y número de lavados</li>
+              </ul>
             </div>
             <div class="step-section">
               <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
@@ -3620,57 +3467,29 @@
         </div>
       </div>
 
-      <!-- Step 3: Secado final -->
-      <div class="step-content" data-step="3">
-        <div class="step-card">
-          <div class="step-card-header">
-            <span class="step-card-num">03</span>
-            <div class="step-card-header-info">
-              <div class="step-card-label">Paso 3 · Secado</div>
-              <div class="step-card-title">Secado final</div>
-            </div>
-          </div>
-          <div class="step-card-body">
-            <div class="step-section">
-              <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
-              <div class="step-action-list">
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Transferir a sistema de secado o vacío</span></div>
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Mantener condiciones de operación</span></div>
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Obtener producto transparente</span></div>
-                <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Verificar estabilidad del producto final</span></div>
-              </div>
-            </div>
-            <div class="step-section">
-              <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
-              <p class="step-card-brief">Eliminar la humedad residual y trazas de metanol para obtener biodiesel purificado, transparente y estable.</p>
-            </div>
-            <div class="step-section">
-              <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
-              <p class="step-card-purpose">Obtener un biodiesel transparente, anhidro y estable, libre de trazas de metanol y humedad.</p>
-            </div>
-          </div>
-        </div>
-      </div>
 
-       <!-- Step 4: Verificación de pH -->
-       <div class="step-content" data-step="4">
+       <!-- Step 3: Verificación de pH -->
+       <div class="step-content" data-step="3">
          <div class="step-card">
            <div class="step-card-header">
-             <span class="step-card-num">04</span>
+             <span class="step-card-num">03</span>
              <div class="step-card-header-info">
-               <div class="step-card-label">Paso 4 · Calidad</div>
+               <div class="step-card-label">Paso 3 · Calidad</div>
                <div class="step-card-title">Verificación de pH</div>
              </div>
            </div>
            <div class="step-card-body">
              <div class="step-section">
                <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
-               <div class="step-action-list">
-                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Medir pH del producto final</span></div>
-                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Comparar con estándares</span></div>
-                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Registrar resultado obtenido</span></div>
-               </div>
-             </div>
+                <div class="step-action-list">
+                  <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Verificación de pH</span></div>
+                </div>
+                <ul style="margin-top:12px;padding-left:20px;font-size:13px;color:#555;line-height:1.8;">
+                  <li>Medir pH del producto final con tiras indicadoras</li>
+                  <li>Comparar con el estándar (pH 6–8)</li>
+                  <li>Registrar resultado obtenido</li>
+                </ul>
+              </div>
              <div class="step-section">
                <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
                <p class="step-card-brief">Evaluar el pH del producto final para asegurar la neutralidad y estabilidad del biodiesel.</p>
@@ -3683,25 +3502,28 @@
          </div>
        </div>
 
-       <!-- Step 5: Evaluación de humedad -->
-       <div class="step-content" data-step="5">
+       <!-- Step 4: Evaluación de humedad -->
+       <div class="step-content" data-step="4">
          <div class="step-card">
            <div class="step-card-header">
-             <span class="step-card-num">05</span>
+             <span class="step-card-num">04</span>
              <div class="step-card-header-info">
-               <div class="step-card-label">Paso 5 · Calidad</div>
+               <div class="step-card-label">Paso 4 · Calidad</div>
                <div class="step-card-title">Evaluación de humedad</div>
              </div>
            </div>
            <div class="step-card-body">
              <div class="step-section">
                <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
-               <div class="step-action-list">
-                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Calentar muestra hasta 120–130 °C</span></div>
-                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Observar burbujeo o chisporroteo</span></div>
-                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Verificar ausencia de burbujas</span></div>
-               </div>
-             </div>
+                <div class="step-action-list">
+                  <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Evaluación de humedad</span></div>
+                </div>
+                <ul style="margin-top:12px;padding-left:20px;font-size:13px;color:#555;line-height:1.8;">
+                  <li>Calentar muestra hasta 120–130 °C</li>
+                  <li>Observar burbujeo o chisporroteo</li>
+                  <li>Verificar ausencia de burbujas</li>
+                </ul>
+              </div>
              <div class="step-section">
                <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
                <p class="step-card-brief">La ausencia de burbujeo indica bajo contenido de humedad. Si el líquido cruje o genera burbujas, tiene humedad alta (&gt; 500 ppm).</p>
@@ -3714,25 +3536,28 @@
          </div>
        </div>
 
-       <!-- Step 6: Evaluación de Conductividad Eléctrica -->
-       <div class="step-content" data-step="6">
+       <!-- Step 5: Evaluación de Conductividad Eléctrica -->
+       <div class="step-content" data-step="5">
          <div class="step-card">
            <div class="step-card-header">
-             <span class="step-card-num">06</span>
+             <span class="step-card-num">05</span>
              <div class="step-card-header-info">
-               <div class="step-card-label">Paso 6 · Físico</div>
+               <div class="step-card-label">Paso 5 · Físico</div>
                <div class="step-card-title">Evaluación de Conductividad Eléctrica</div>
              </div>
            </div>
            <div class="step-card-body">
              <div class="step-section">
                <div class="step-section-header"><i class="fas fa-flask hl-que"></i><span>¿Qué se hace?</span></div>
-               <div class="step-action-list">
-                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Medir la conductividad eléctrica del producto final</span></div>
-                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Evaluar la capacidad aislante</span></div>
-                 <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Registrar resultado final</span></div>
-               </div>
-             </div>
+                <div class="step-action-list">
+                  <div class="step-action-card"><div class="step-action-thumb"><i class="fas fa-camera"></i><input type="file" accept="image/*,video/*,.mov,.heic,.heif" class="sa-input" hidden></div><span class="step-action-label">Conductividad Eléctrica</span></div>
+                </div>
+                <ul style="margin-top:12px;padding-left:20px;font-size:13px;color:#555;line-height:1.8;">
+                  <li>Medir la conductividad eléctrica del producto final</li>
+                  <li>Evaluar la capacidad aislante</li>
+                  <li>Registrar resultado final</li>
+                </ul>
+              </div>
              <div class="step-section">
                <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
                <p class="step-card-brief">Determinar la capacidad del producto para actuar como aislante eléctrico, evitando fugas de corriente.</p>
@@ -3748,7 +3573,7 @@
       <!-- Navigation -->
       <div class="phase-nav">
         <button onclick="prevStepF3()"><i class="fas fa-chevron-left"></i> Anterior</button>
-        <span id="stepIndicatorF3" style="font-size:12px;color:#666;">Paso 1 de 6</span>
+        <span id="stepIndicatorF3" style="font-size:12px;color:#666;">Paso 1 de 5</span>
         <button onclick="nextStepF3()">Siguiente <i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
@@ -4181,7 +4006,7 @@
   }
 
   var currentStepF3 = 1;
-  var totalStepsF3 = 6;
+  var totalStepsF3 = 5;
 
   function openFase3Modal(step) {
     goToStepF3(step);
@@ -4190,7 +4015,7 @@
 
   function goToStepF3(n) {
     currentStepF3 = Math.max(1, Math.min(n, totalStepsF3));
-    var titlesF3 = ['Lavado por aspersión','Centrifugación de humedad','Secado final','Verificación de pH','Evaluación de humedad','Evaluación de Conductividad Eléctrica'];
+    var titlesF3 = ['Lavado por aspersión','Centrifugación de humedad','Verificación de pH','Evaluación de humedad','Evaluación de Conductividad Eléctrica'];
     document.getElementById('modalFase3Title').textContent = titlesF3[currentStepF3 - 1];
     document.querySelectorAll('#modal-fase3 .step-content').forEach(function(content, i) {
       content.classList.toggle('active', i + 1 === currentStepF3);
@@ -4217,8 +4042,8 @@
   }
 
   const thumbContainer = document.getElementById('gridThumbs');
-  const labels = ['Portada','Objetivo General','Fases de Laboratorio','Fase 2 · Transformación','Fase 3 · Purificación y Caracterización','Escalamiento Industrial','Balance M&amp;E','HMI / SCADA','Balance','Aplicación','Conclusiones','Cierre'];
-  const colors = ['#121212','#1a1a1a','#1a1a1a','#1a1a1a','#1a1a1a','#1a1a1a','#1a1a1a','#1a1a1a','#1a1a1a','#1a1a1a','#1a1a1a','#121212'];
+  const labels = ['Portada','Objetivo General','Fases de Laboratorio','Fase 2 · Transformación','Fase 3 · Purificación y Caracterización','Escalamiento Industrial','Aplicación','Conclusiones','Cierre'];
+  const colors = ['#121212','#1a1a1a','#1a1a1a','#1a1a1a','#1a1a1a','#1a1a1a','#1a1a1a','#1a1a1a','#121212'];
   for (let i = 0; i < totalSlides; i++) {
     const t = document.createElement('div');
     t.className = 'thumb' + (i === 0 ? ' active' : '');
@@ -4304,6 +4129,16 @@
     var tabs = modal.querySelectorAll('.modal-tab');
     if (n >= 1 && n <= tabs.length) {
       tabs[n-1].click();
+    }
+  }
+  function toggleText(el) {
+    var txt = el.querySelector('.expand-text');
+    if (txt.style.maxHeight === '0px' || !txt.style.maxHeight) {
+      txt.style.maxHeight = txt.scrollHeight + 'px';
+      txt.style.marginTop = '8px';
+    } else {
+      txt.style.maxHeight = '0px';
+      txt.style.marginTop = '0';
     }
   }
   document.querySelectorAll('.modal-overlay').forEach(o => {
