@@ -78,7 +78,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 64px 80px 100px;
+    padding: 64px 60px 90px;
     position: relative;
     overflow: hidden;
     background: var(--bg);
@@ -123,8 +123,9 @@
   }
 
   .slide .slide-content {
-    max-width: 1100px;
+    max-width: 1200px;
     width: 100%;
+    text-align:center;
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -135,12 +136,12 @@
 
   /* ===== SLIDE HEADER ===== */
   .slide-label {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2.5px;
     color: var(--accent);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     opacity: 0;
     transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
     transform: translateY(12px);
@@ -148,11 +149,11 @@
   .slide.active .slide-label { opacity: 1; transform: translateY(0); }
 
   .slide-title {
-    font-size: 36px;
+    font-size: 42px;
     font-weight: 800;
     color: #39b54a;
     line-height: 1.2;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     opacity: 0;
     transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;
     transform: translateY(12px);
@@ -161,11 +162,11 @@
   .slide.active .slide-title { opacity: 1; transform: translateY(0); }
 
   .slide-subtitle {
-    font-size: 16px;
+    font-size: 18px;
     color: var(--text-light);
     line-height: 1.6;
-    max-width: 700px;
-    margin: 0 auto 28px;
+    max-width: 800px;
+    margin: 0 auto 32px;
     font-weight: 400;
     opacity: 0;
     transition: opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s;
@@ -175,11 +176,11 @@
   .slide.active .slide-subtitle { opacity: 1; transform: translateY(0); }
 
   .slide-accent-line {
-    width: 60px;
-    height: 4px;
+    width: 70px;
+    height: 5px;
     background: linear-gradient(90deg, var(--accent), rgba(57,181,74,0.3));
     border-radius: 4px;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     opacity: 0;
     transition: opacity 0.5s ease 0.25s, width 0.5s ease 0.25s;
   }
@@ -221,32 +222,32 @@
   }
   .slide-cover.active .cover-center { opacity: 1; transform: translateY(0); }
   .slide-cover .cover-center .cover-title {
-    font-size: 34px;
+    font-size: 40px;
     font-weight: 800;
     color: #39b54a;
     line-height: 1.25;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     letter-spacing: -0.5px;
   }
   .slide-cover .cover-center .cover-subtitle-1 {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 500;
     color: #e0e0e0;
     line-height: 1.4;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
   .slide-cover .cover-center .cover-subtitle-2 {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 400;
     color: #999;
-    line-height: 1.5;
-    margin-bottom: 4px;
+    line-height: 1.6;
+    margin-bottom: 6px;
   }
   .slide-cover .cover-center .cover-subtitle-3 {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 500;
     color: #e0e0e0;
-    line-height: 1.5;
+    line-height: 1.6;
     margin: 0;
   }
   .slide-cover .cover-bottom {
@@ -490,8 +491,8 @@
   /* ===== CARDS GRID IN SLIDES ===== */
   .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
     width: 100%;
     opacity: 0;
     transition: opacity 0.5s ease 0.35s, transform 0.5s ease 0.35s;
@@ -505,7 +506,7 @@
   .card {
     background: var(--card-bg);
     border-radius: var(--radius);
-    padding: 24px 22px;
+    padding: 28px 26px;
     box-shadow: var(--shadow);
     cursor: pointer;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
@@ -535,16 +536,16 @@
   .card.no-hover:hover { transform: none; box-shadow: var(--shadow); border-color: var(--card-border); }
   .card.no-hover:active { transform: none; }
   .card .card-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
     background: var(--primary-bg);
     color: var(--primary-light);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
-    margin-bottom: 14px;
+    font-size: 20px;
+    margin-bottom: 16px;
     transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
   }
   .card:hover .card-icon {
@@ -553,16 +554,16 @@
     transform: scale(1.08);
   }
   .card.no-hover:hover .card-icon { background: var(--primary-bg); color: var(--primary-light); transform: none; }
-  .card h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; color: #e0e0e0; }
-  .card p { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+  .card h3 { font-size: 19px; font-weight: 700; margin-bottom: 8px; color: #e0e0e0; }
+  .card p { font-size: 15px; color: var(--text-light); line-height: 1.7; }
   .card .tag {
     display: inline-block;
-    margin-top: 10px;
-    padding: 4px 12px;
+    margin-top: 12px;
+    padding: 5px 14px;
     background: rgba(57,181,74,0.1);
     color: var(--primary-light);
     border-radius: 20px;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 600;
     transition: background 0.2s;
   }
@@ -592,14 +593,14 @@
   .slide-list li {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
-    padding: 14px 18px;
+    gap: 14px;
+    padding: 16px 20px;
     background: var(--card-bg);
     border-radius: 12px;
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--card-border);
-    font-size: 13px;
-    line-height: 1.5;
+    font-size: 15px;
+    line-height: 1.6;
     transition: border-color 0.25s ease, box-shadow 0.25s ease;
   }
   .slide-list li:hover { border-color: rgba(57,181,74,0.2); box-shadow: var(--shadow-glow); }
@@ -656,15 +657,15 @@
     border-color: rgba(57,181,74,0.15);
   }
   .metric-box .metric-value {
-    font-size: 32px;
+    font-size: 36px;
     font-weight: 800;
     color: var(--primary-light);
     line-height: 1.2;
   }
   .metric-box .metric-label {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--text-light);
-    margin-top: 4px;
+    margin-top: 6px;
   }
   .metric-box.accent { background: var(--accent-light); }
   .metric-box.accent .metric-value { color: var(--primary-light); }
@@ -687,7 +688,7 @@
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     border-radius: 14px;
-    padding: 16px 12px;
+    padding: 18px 14px;
     cursor: pointer;
     text-align: center;
     font-family: var(--font);
@@ -716,7 +717,7 @@
   }
   .obj-btn:hover .obj-icon { background: #39b54a; color: #fff; transform: scale(1.08); }
   .obj-btn .obj-keyword {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 700;
     color: #e0e0e0;
     transition: color 0.25s;
@@ -735,11 +736,11 @@
     margin-top: 10px;
   }
   .obj-btn .obj-expand p {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-light);
-    line-height: 1.5;
+    line-height: 1.6;
     margin: 0;
-    padding: 8px 4px 0;
+    padding: 10px 4px 0;
     border-top: 1px solid rgba(255,255,255,0.06);
   }
   .obj-btn .obj-arrow {
@@ -832,8 +833,8 @@
     transform: translateY(-1px) scale(0.98);
   }
   .pid-equip .pid-icon { font-size: 24px; color: var(--primary-light); margin-bottom: 5px; }
-  .pid-equip .pid-name { font-size: 12px; font-weight: 600; color: #e0e0e0; line-height: 1.3; }
-  .pid-equip .pid-type { font-size: 10px; color: #888; margin-top: 3px; letter-spacing: 0.5px; }
+  .pid-equip .pid-name { font-size: 14px; font-weight: 600; color: #e0e0e0; line-height: 1.3; }
+  .pid-equip .pid-type { font-size: 11px; color: #888; margin-top: 3px; letter-spacing: 0.5px; }
   .pid-equip .pid-tag {
     display: inline-block;
     margin-top: 5px;
@@ -904,19 +905,19 @@
   }
   .balance-card.full { grid-column: 1 / -1; }
   .balance-card h3 {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 700;
     color: #e0e0e0;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
     gap: 10px;
   }
-  .balance-card h3 i { color: #39b54a; font-size: 18px; }
+  .balance-card h3 i { color: #39b54a; font-size: 20px; }
   .balance-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 13px;
+    font-size: 14px;
   }
   .balance-table th {
     text-align: left;
@@ -1014,22 +1015,22 @@
   }
   .flow-block:hover .flow-icon { transform: scale(1.08) rotate(-5deg); background: rgba(57,181,74,0.18); }
   .flow-block .flow-phase {
-    font-size: 10px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     color: #39b54a;
     font-weight: 600;
   }
   .flow-block .flow-title {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     color: #e0e0e0;
     line-height: 1.3;
   }
   .flow-block .flow-sub {
-    font-size: 11px;
+    font-size: 12px;
     color: #999;
-    margin-top: 2px;
+    margin-top: 3px;
   }
   .flow-block .flow-vars {
     display: flex;
@@ -1039,8 +1040,8 @@
     margin-top: 6px;
   }
   .flow-block .flow-vars span {
-    font-size: 10px;
-    padding: 3px 8px;
+    font-size: 12px;
+    padding: 4px 10px;
     border-radius: 20px;
     background: rgba(255,255,255,0.05);
     color: #aaa;
@@ -1106,15 +1107,15 @@
     margin-bottom: 4px;
   }
   .flow-action .action-title {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     color: #e0e0e0;
   }
   .flow-action .action-desc {
-    font-size: 11px;
+    font-size: 13px;
     color: #888;
-    line-height: 1.4;
-    margin-top: 2px;
+    line-height: 1.5;
+    margin-top: 4px;
   }
   .flow-action.scada {
     border-color: rgba(57,181,74,0.2);
@@ -1173,12 +1174,12 @@
     margin-bottom: 0;
   }
   .process-section-label {
-    font-size: 10px;
+    font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #888;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     text-align: center;
   }
 
@@ -1186,7 +1187,7 @@
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     border-radius: 14px;
-    padding: 12px 16px;
+    padding: 16px 20px;
     cursor: pointer;
     text-align: left;
     font-family: var(--font);
@@ -1225,18 +1226,18 @@
   .process-block:hover .proc-icon { background: rgba(57,181,74,0.2); color: #39b54a; transform: scale(1.05); }
   .process-block .proc-info { flex: 1; }
   .process-block .proc-label {
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 700;
     color: #39b54a;
     text-transform: uppercase;
     letter-spacing: 1.2px;
-    margin-bottom: 2px;
+    margin-bottom: 3px;
   }
   .process-block .proc-title {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     color: #e8e8e8;
-    line-height: 1.2;
+    line-height: 1.3;
     transition: color 0.25s;
   }
   .process-block:hover .proc-title { color: #39b54a; }
@@ -1248,10 +1249,10 @@
     padding-top: 8px;
   }
   .process-block .proc-steps li {
-    font-size: 11px;
+    font-size: 13px;
     color: #888;
-    line-height: 1.4;
-    padding: 2px 0 2px 18px;
+    line-height: 1.5;
+    padding: 3px 0 3px 20px;
     position: relative;
   }
   .process-block .proc-steps li::before {
@@ -1296,11 +1297,11 @@
     margin-bottom: 6px;
   }
   .step-desc {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.8;
     color: #444;
     margin-bottom: 16px;
-    padding: 14px 16px;
+    padding: 16px 20px;
     background: #f8faf8;
     border-left: 3px solid #39b54a;
     border-radius: 0 10px 10px 0;
@@ -2233,9 +2234,9 @@
   <div class="slide" data-index="2">
     <div class="slide-logo"><img src="images/logo-sena-blanco.png" alt="SENA" onerror="this.style.display='none'"></div>
     <div class="slide-content" style="text-align:center;">
-      <div class="slide-label" style="font-size:14px;">Fase 1 · Laboratorio</div>
+      <div class="slide-label" style="font-size:16px;">Fase 1 · Laboratorio</div>
       <div class="slide-accent-line"></div>
-      <h2 class="slide-title" style="font-size:26px;margin-bottom:4px;color:#e0e0e0;">Preparación y Caracterización de Materia Prima</h2>
+      <h2 class="slide-title" style="font-size:32px;margin-bottom:6px;color:#e0e0e0;">Preparación y Caracterización de Materia Prima</h2>
       <p class="slide-subtitle" style="text-align:center;">Preparación del aceite residual y del catalizador para transesterificación</p>
       <div class="process-grid">
         <div class="process-block" onclick="openFase1Modal(1)">
@@ -2305,9 +2306,9 @@
   <div class="slide" data-index="3">
     <div class="slide-logo"><img src="images/logo-sena-blanco.png" alt="SENA" onerror="this.style.display='none'"></div>
     <div class="slide-content" style="text-align:center;">
-      <div class="slide-label" style="font-size:14px;">Fase 2 · Transformación</div>
+      <div class="slide-label" style="font-size:16px;">Fase 2 · Transformación</div>
       <div class="slide-accent-line"></div>
-      <h2 class="slide-title" style="font-size:26px;margin-bottom:4px;color:#e0e0e0;">Esterificación, Transesterificación y Separación</h2>
+      <h2 class="slide-title" style="font-size:32px;margin-bottom:6px;color:#e0e0e0;">Esterificación, Transesterificación y Separación</h2>
       <p class="slide-subtitle" style="text-align:center;">Conversión de aceite tratado en ésteres metílicos y separación de glicerina</p>
       <div class="process-grid process-grid-3">
         <div class="process-block" onclick="openFase2Modal(1)">
@@ -2365,9 +2366,9 @@
   <div class="slide" data-index="4" style="padding: 16px 40px 32px; overflow-y: auto;">
     <div class="slide-logo"><img src="images/logo-sena-blanco.png" alt="SENA" onerror="this.style.display='none'"></div>
     <div class="slide-content" style="text-align:center;">
-      <div class="slide-label" style="font-size:14px;">Fase 3 · Purificación y Caracterización</div>
+      <div class="slide-label" style="font-size:16px;">Fase 3 · Purificación y Caracterización</div>
       <div class="slide-accent-line"></div>
-      <h2 class="slide-title" style="font-size:26px;margin-bottom:4px;color:#e0e0e0;">Purificación y Caracterización Final</h2>
+      <h2 class="slide-title" style="font-size:32px;margin-bottom:6px;color:#e0e0e0;">Purificación y Caracterización Final</h2>
       <p class="slide-subtitle" style="text-align:center;">Eliminación de impurezas y verificación de calidad del biodiesel</p>
 
       <div class="process-section">
@@ -2467,46 +2468,46 @@
     <div class="slide-content" style="text-align:center;">
       <div class="slide-label">Escalamiento Industrial</div>
       <div class="slide-accent-line" style="margin:0 auto 14px;"></div>
-      <h2 class="slide-title" style="font-size:24px;margin-bottom:6px;color:#e0e0e0;">Escalamiento Industrial</h2>
-      <p class="slide-subtitle" style="font-size:13px;color:#999;margin-bottom:20px;">Todo el proceso se ve reflejado en el sistema SCADA externo</p>
+      <h2 class="slide-title">Escalamiento Industrial</h2>
+      <p class="slide-subtitle">Todo el proceso se ve reflejado en el sistema SCADA externo</p>
 
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:660px;margin:0 auto;">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:780px;margin:0 auto;">
         <!-- Cajoncito 1: Procesos unitarios -->
-        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:20px 16px;cursor:pointer;transition:all 0.3s;text-align:center;" onclick="toggleText(this)" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
-          <div style="font-size:28px;margin-bottom:8px;color:#39b54a;"><i class="fas fa-flask"></i></div>
-          <div style="font-size:14px;font-weight:700;color:#e0e0e0;">Procesos unitarios</div>
-          <div style="font-size:10px;color:#666;margin-top:4px;">Haz clic para ver más</div>
-          <div class="expand-text" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease, margin 0.3s ease;font-size:12px;color:#aaa;line-height:1.6;text-align:left;margin-top:0;">
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:24px 18px;cursor:pointer;transition:all 0.3s;text-align:center;" onclick="toggleText(this)" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+          <div style="font-size:32px;margin-bottom:10px;color:#39b54a;"><i class="fas fa-flask"></i></div>
+          <div style="font-size:16px;font-weight:700;color:#e0e0e0;">Procesos unitarios</div>
+          <div style="font-size:11px;color:#666;margin-top:5px;">Haz clic para ver más</div>
+          <div class="expand-text" style="max-height:0px;overflow:hidden;transition:max-height 0.4s ease, margin 0.3s ease;font-size:13px;color:#aaa;line-height:1.7;text-align:left;margin-top:0px;">
             <div style="padding-top:12px;border-top:1px solid rgba(255,255,255,0.06);margin-top:12px;">
-              Se abordarán los procesos químicos involucrados en la obtención de ésteres monoalquílicos y las operaciones unitarias que componen cada etapa del proceso productivo, desde el acondicionamiento de la materia prima hasta la purificación y caracterización del producto final.
+              Se abordarán los procesos químicos y las operaciones unitarias de cada etapa del proceso productivo: acondicionamiento de MP, transformación y purificación/caracterización.
             </div>
           </div>
         </div>
 
         <!-- Cajoncito 2: Balance de energía -->
-        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:20px 16px;cursor:pointer;transition:all 0.3s;text-align:center;" onclick="toggleText(this)" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
-          <div style="font-size:28px;margin-bottom:8px;color:#39b54a;"><i class="fas fa-bolt"></i></div>
-          <div style="font-size:14px;font-weight:700;color:#e0e0e0;">Balance de energía</div>
-          <div style="font-size:10px;color:#666;margin-top:4px;">Haz clic para ver más</div>
-          <div class="expand-text" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease, margin 0.3s ease;font-size:12px;color:#aaa;line-height:1.6;text-align:left;margin-top:0;">
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:24px 18px;cursor:pointer;transition:all 0.3s;text-align:center;" onclick="toggleText(this)" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+          <div style="font-size:32px;margin-bottom:10px;color:#39b54a;"><i class="fas fa-bolt"></i></div>
+          <div style="font-size:16px;font-weight:700;color:#e0e0e0;">Balance de energía</div>
+          <div style="font-size:11px;color:#666;margin-top:5px;">Haz clic para ver más</div>
+          <div class="expand-text" style="max-height:0px;overflow:hidden;transition:max-height 0.4s ease, margin 0.3s ease;font-size:13px;color:#aaa;line-height:1.7;text-align:left;margin-top:0px;">
             <div style="padding-top:12px;border-top:1px solid rgba(255,255,255,0.06);margin-top:12px;">
-              Se explicará el balance de energía del proceso, detallando los consumos energéticos en cada operación unitaria: calentamiento, reacción, destilación, bombeo y pérdidas térmicas, para evaluar la eficiencia energética del escalamiento industrial.
+              Se detallarán los consumos energéticos del proceso (calentamiento, reacción, destilación, bombeo y pérdidas) para evaluar la eficiencia del escalamiento industrial.
             </div>
           </div>
         </div>
 
         <!-- Cajoncito 3: SCADA/HMI -->
-        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:20px 16px;cursor:pointer;transition:all 0.3s;text-align:center;" onclick="toggleText(this)" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
-          <div style="font-size:28px;margin-bottom:8px;color:#39b54a;"><i class="fas fa-desktop"></i></div>
-          <div style="font-size:14px;font-weight:700;color:#e0e0e0;">SCADA / HMI</div>
-          <div style="font-size:10px;color:#666;margin-top:4px;">Haz clic para ver más</div>
-          <div class="expand-text" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease, margin 0.3s ease;font-size:12px;color:#aaa;line-height:1.6;text-align:left;margin-top:0;">
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:24px 18px;cursor:pointer;transition:all 0.3s;text-align:center;" onclick="toggleText(this)" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+          <div style="font-size:32px;margin-bottom:10px;color:#39b54a;"><i class="fas fa-desktop"></i></div>
+          <div style="font-size:16px;font-weight:700;color:#e0e0e0;">SCADA / HMI</div>
+          <div style="font-size:11px;color:#666;margin-top:5px;">Haz clic para ver más</div>
+          <div class="expand-text" style="max-height:0px;overflow:hidden;transition:max-height 0.4s ease, margin 0.3s ease;font-size:13px;color:#aaa;line-height:1.7;text-align:left;margin-top:0px;">
             <div style="padding-top:12px;border-top:1px solid rgba(255,255,255,0.06);margin-top:12px;">
-              Se integró un sistema HMI (Interfaz Hombre-Máquina) que refleja en tiempo real el estado de cada operación unitaria. Se tendrá en cuenta todo lo aprendido durante el proceso productivo para la supervisión, control y monitoreo de las variables del proceso industrial.
+              Se integró un HMI que refleja en tiempo real el estado de cada operación unitaria, considerando todo lo aprendido en el proceso productivo para la supervisión y control de variables.
             </div>
-            <div style="text-align:center;margin-top:12px;">
+            <div style="text-align:center;margin-top:14px;">
               <a href="https://sebastianl1.github.io/Web_prueba/#" target="_blank" 
-                 style="display:inline-block;background:#39b54a;color:#fff;padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:background 0.3s;"
+                 style="display:inline-block;background:#39b54a;color:#fff;padding:10px 24px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;transition:background 0.3s;"
                  onmouseover="this.style.background='#2d9a3e'" onmouseout="this.style.background='#39b54a'"
                  onclick="event.stopPropagation()">
                 <i class="fas fa-external-link-alt"></i> Abrir SCADA
@@ -2526,17 +2527,77 @@
       <div class="slide-accent-line"></div>
       <h2 class="slide-title">Aplicación de Caracterización</h2>
       <p class="slide-subtitle">Herramienta para determinar propiedades de los ésteres monoalquílicos</p>
+
+      <!-- Botón para abrir la aplicación -->
+      <div style="margin:0 auto 14px;max-width:600px;text-align:center;">
+        <a href="https://lihtunal11.github.io/PREDICCION_3/" target="_blank" 
+           style="display:inline-flex;align-items:center;gap:10px;background:rgba(57,181,74,0.1);border:1px solid rgba(57,181,74,0.25);border-radius:12px;padding:14px 28px;text-decoration:none;transition:all 0.3s;"
+           onmouseover="this.style.background='rgba(57,181,74,0.2)';this.style.borderColor='rgba(57,181,74,0.4)'" 
+           onmouseout="this.style.background='rgba(57,181,74,0.1)';this.style.borderColor='rgba(57,181,74,0.25)'">
+          <span style="font-size:24px;color:#39b54a;"><i class="fas fa-external-link-alt"></i></span>
+          <div style="text-align:left;">
+            <div style="font-size:14px;font-weight:700;color:#e0e0e0;">Abrir Aplicación</div>
+            <div style="font-size:11px;color:#999;">Herramienta de predicción de propiedades</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Chips -->
+      <div style="display:flex;justify-content:center;gap:8px;margin-bottom:18px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:5px;background:rgba(57,181,74,0.08);border:1px solid rgba(57,181,74,0.15);border-radius:8px;padding:5px 12px;font-size:11px;color:#ccc;">
+          <span style="color:#39b54a;">📥</span> Entrada de datos
+        </div>
+        <div style="display:flex;align-items:center;gap:5px;background:rgba(57,181,74,0.08);border:1px solid rgba(57,181,74,0.15);border-radius:8px;padding:5px 12px;font-size:11px;color:#ccc;">
+          <span style="color:#39b54a;">⚙️</span> Cálculo de propiedades
+        </div>
+        <div style="display:flex;align-items:center;gap:5px;background:rgba(57,181,74,0.08);border:1px solid rgba(57,181,74,0.15);border-radius:8px;padding:5px 12px;font-size:11px;color:#ccc;">
+          <span style="color:#39b54a;">📄</span> Generación de informe
+        </div>
+      </div>
+
       <div class="cards-grid two">
         <div class="card" onclick="openModal('modal-app-detalle')">
           <div class="card-icon"><i class="fas fa-cogs"></i></div>
           <h3>Funcionalidad</h3>
           <p>Calcula propiedades de los ésteres a partir de insumos y variables del proceso.</p>
+          <div style="display:flex;gap:6px;justify-content:center;margin:10px 0 0;flex-wrap:wrap;">
+            <div style="background:rgba(57,181,74,0.06);border-radius:6px;padding:4px 8px;text-align:center;font-size:10px;color:#999;">
+              <div style="font-weight:700;color:#39b54a;font-size:12px;">&gt;85%</div>
+              <div>Rendimiento</div>
+            </div>
+            <div style="background:rgba(57,181,74,0.06);border-radius:6px;padding:4px 8px;text-align:center;font-size:10px;color:#999;">
+              <div style="font-weight:700;color:#39b54a;font-size:12px;">4–6 cSt</div>
+              <div>Viscosidad</div>
+            </div>
+            <div style="background:rgba(57,181,74,0.06);border-radius:6px;padding:4px 8px;text-align:center;font-size:10px;color:#999;">
+              <div style="font-weight:700;color:#39b54a;font-size:12px;">0.86–0.90</div>
+              <div>Densidad g/mL</div>
+            </div>
+          </div>
           <span class="tag">Ver más</span>
         </div>
         <div class="card" onclick="openModal('modal-app-informe')">
-          <div class="card-icon"><i class="fas fa-file-pdf"></i></div>
+          <div class="card-icon">
+            <svg viewBox="0 0 48 34" width="22" height="16" fill="none" style="display:block;">
+              <polyline points="4,26 12,6 20,26 28,6 36,26" stroke="#39b54a" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+              <line x1="36" y1="26" x2="42" y2="16" stroke="#39b54a" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="38" y1="22" x2="42" y2="16" stroke="#39b54a" stroke-width="2" stroke-linecap="round"/>
+              <line x1="36" y1="26" x2="42" y2="30" stroke="#39b54a" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="44" cy="31" r="3" fill="#39b54a"/>
+              <circle cx="12" cy="6" r="1.8" fill="#39b54a" opacity="0.6"/>
+              <circle cx="20" cy="26" r="1.8" fill="#39b54a" opacity="0.6"/>
+              <circle cx="28" cy="6" r="1.8" fill="#39b54a" opacity="0.6"/>
+            </svg>
+          </div>
           <h3>Informe Automático</h3>
-          <p>Genera un informe detallado en PDF con todos los resultados del análisis.</p>
+          <p>Genera un informe PDF con todos los resultados del análisis.</p>
+          <div style="display:flex;gap:4px;justify-content:center;margin:10px 0 0;flex-wrap:wrap;">
+            <span style="background:rgba(57,181,74,0.08);border-radius:4px;padding:2px 6px;font-size:9px;color:#999;">📊 Datos entrada</span>
+            <span style="background:rgba(57,181,74,0.08);border-radius:4px;padding:2px 6px;font-size:9px;color:#999;">🔬 Caracterización</span>
+            <span style="background:rgba(57,181,74,0.08);border-radius:4px;padding:2px 6px;font-size:9px;color:#999;">📈 Gráficos</span>
+            <span style="background:rgba(57,181,74,0.08);border-radius:4px;padding:2px 6px;font-size:9px;color:#999;">✅ Normativas</span>
+            <span style="background:rgba(57,181,74,0.08);border-radius:4px;padding:2px 6px;font-size:9px;color:#999;">🏭 Escalamiento</span>
+          </div>
           <span class="tag">Ver más</span>
         </div>
       </div>
@@ -3327,11 +3388,11 @@
             </div>
             <div class="step-section">
               <div class="step-section-header"><i class="fas fa-question-circle hl-porque"></i><span>¿Por qué se hace?</span></div>
-              <p class="step-card-brief">Convertir los triglicéridos en ésteres metílicos de ácidos grasos (biodiesel) mediante catálisis básica con metóxido.</p>
+              <p class="step-card-brief">Convertir los triglicéridos en ésteres metílicos de ácidos grasos mediante catálisis básica con metóxido.</p>
             </div>
             <div class="step-section">
               <div class="step-section-header"><i class="fas fa-bullseye hl-proposito"></i><span>Propósito</span></div>
-              <p class="step-card-purpose">Convertir los triglicéridos del aceite en ésteres metílicos (biodiesel) mediante la reacción con metóxido de potasio.</p>
+              <p class="step-card-purpose">Convertir los triglicéridos del aceite en ésteres metílicos mediante la reacción con metóxido de potasio.</p>
             </div>
           </div>
         </div>
@@ -4133,7 +4194,8 @@
   }
   function toggleText(el) {
     var txt = el.querySelector('.expand-text');
-    if (txt.style.maxHeight === '0px' || !txt.style.maxHeight) {
+    var ch = txt.style.maxHeight;
+    if (ch === '0px' || ch === '0' || !ch) {
       txt.style.maxHeight = txt.scrollHeight + 'px';
       txt.style.marginTop = '8px';
     } else {
